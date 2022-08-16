@@ -7,6 +7,8 @@ require('dotenv').config();
 
 // app
 const app = express();
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true }))
 
 const URI = process.env.MONGO_URI;
 const port = process.env.PORT || 8082;
@@ -26,9 +28,11 @@ app.use(cors({origin: true, credentials: true}));
 
 // routes import
 const testRoutes = require('./routes/test');
+const taxiRouter = require('./routes/TaxiRoute');
 
 //routes
-app.use('/', testRoutes);
+app.use('/test', testRoutes);
+app.use('/taxi', taxiRouter);
 
 
 
