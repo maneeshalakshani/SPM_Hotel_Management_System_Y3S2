@@ -1,11 +1,20 @@
 const express = require('express')
 const router = express.Router();
 
-const {addTaxi, deleteAllTaxis} = require('../controllers/Taxi');
+const {
+    addTaxi, 
+    deleteAllTaxis,
+    deleteTaxi,
+    getTaxi,
+    getAllTaxis
+} = require('../controllers/TaxiController');
 
 
 router.post('/add', addTaxi);
 router.delete('/deleteAll', deleteAllTaxis);
+router.delete('/deleteTaxi/:id', deleteTaxi);
+router.get('/getTaxi/:id', getTaxi);
+router.get('/getAllTaxis', getAllTaxis);
 
 
 module.exports = router;
