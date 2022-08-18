@@ -5,6 +5,7 @@ var taxiSchema = new mongoose.Schema({
     pricePerDay: {type: Number, required: true, default: 0},
     noOfSeats: {type: Number, required: true, default: 0},
     driver: {type: String, required: true, default: "DEFAULT TAXI DRIVER"},
+    image: {type: String}
 });
 
 module.exports = new mongoose.model('taxis', taxiSchema);
