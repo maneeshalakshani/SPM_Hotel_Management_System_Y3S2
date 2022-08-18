@@ -9,7 +9,7 @@ const {
     getAllTaxis,
     uploadImage,
     updateTaxi
-} = require('../controllers/TaxiController');
+} = require('../../controllers/TaxiControllers/TaxiController');
 
 
 router.post('/add', uploadImage, addTaxi);

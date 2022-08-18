@@ -1,7 +1,7 @@
 const multer = require('multer')
 const fs = require('fs')
 
-const Taxi = require('../models/TaxiModel');
+const Taxi = require('../../models/TaxiModels/TaxiModel');
 
 
 //upload taxi image to uploads/taxi folder============================================================
