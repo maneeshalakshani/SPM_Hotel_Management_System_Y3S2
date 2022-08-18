@@ -27,11 +27,9 @@ app.use(cors({origin: true, credentials: true}));
 
 
 // routes import
-const testRoutes = require('./routes/test');
-const taxiRouter = require('./routes/TaxiRoute');
+const taxiRouter = require('./routes/TaxiRouters/TaxiRoute');
 
 //routes
-app.use('/test', testRoutes);
 app.use('/taxi', taxiRouter);
 
 
