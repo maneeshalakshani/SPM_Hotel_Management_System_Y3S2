@@ -7,4 +7,4 @@ var taxiSchema = new mongoose.Schema({
     driver: {type: String, required: true, default: "DEFAULT TAXI DRIVER"},
 });
 
-module.exports = new mongoose.model('Taxis', taxiSchema);
+module.exports = new mongoose.model('taxis', taxiSchema);
