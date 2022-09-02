@@ -29,12 +29,14 @@ app.use(cors({origin: true, credentials: true}));
 // routes import
 const taxiRouter = require('./routes/TaxiRouters/TaxiRoute');
 const menudRouter= require('./routes/MenuRotters/MenuDetailsRouter');
-const roomsRouter= require('./routes/RoomRouters/RoomRouter');
+const commonRoutes = require('./routes/commonRoutes');
 
 //routes
 app.use('/taxi', taxiRouter);
 app.use('/menud',menudRouter);
-app.use('/rooms', roomsRouter);
+app.use('/', commonRoutes)
+
+
 
 //listener
 const server = app.listen(port, () => console.log(`Server is running on port ${port}`));

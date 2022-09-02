@@ -8,4 +8,4 @@ var taxiSchema = new mongoose.Schema({
     image: {type: String}
 });
 
-module.exports = new mongoose.model('taxis', taxiSchema);
+module.exports = new mongoose.model('taxis', taxiSchema, 'taxis');
