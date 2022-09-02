@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom';
+import '../../App.css';
 
 import {Login} from '../../functions/commonFunctions';
 
@@ -35,6 +37,12 @@ export default class login extends Component {
         </div>
         <div>
             <button type='submit'>Login</button>
+        </div>
+        <div>
+          Register to the system 
+          <Link to='/register' className='link'>
+            Register
+          </Link>
         </div>
       </form>
     )

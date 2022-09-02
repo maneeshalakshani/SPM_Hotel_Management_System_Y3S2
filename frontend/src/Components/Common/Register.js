@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import '../../App.css';
+import {Link} from 'react-router-dom';
 
 import {register} from '../../functions/commonFunctions';
 
@@ -40,6 +42,12 @@ export default class Register extends Component {
                 </div>
                 <div>
                     <button type='submit'>Register</button>
+                </div>
+                <div>
+                  Login to the system 
+                  <Link to='/' className='link'>
+                    Login
+                  </Link>
                 </div>
             </form>
         </div>
