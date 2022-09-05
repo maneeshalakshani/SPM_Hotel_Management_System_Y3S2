@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { getAllTaxis } from '../../../functions/taxiFunctions'
 
-import i from '../../../images/Taxi_Images/uploads/819592709.png';
+import i from '../../../images/Taxi_Images/uploads/789676470.png';
 
 export default class ViewAllTaxis extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      taxis: "",
+      taxis: '',
     }
   }
 
@@ -21,35 +21,37 @@ export default class ViewAllTaxis extends Component {
   }
 
   displayAllTaxis(alltaxis) {
-    if(alltaxis.length > 0){
-      return(
-        alltaxis.map((t, index) => {
-          return(
-            <div className='card taxiCard'>
-              <h4>{t.taxiType}</h4>
-              <img src={i} alt="taxi" className='taxiCardImg' />
-              <h6>Cost Per Day: {t.pricePerDay}</h6>
-              <h6>Driver: {t.driver}</h6>
-              <h6>No.of Seats: {t.noOfSeats}</h6>
-              {/* {import(t.image).then((image) => {
-                this.setState({i: image})
-              })}
-              <img src={t.image} alt='taxi' />
-              <img src={URL.createObjectURL(t.image)} alt='taxi' />
-              <img src={i} alt="" />
-              {t.image.toString()} */}
-              <div className='row'>
-              <div className='col d-flex justify-content-center'>
-                  <button className='Button updateBtn'>Update</button>
-                </div>
+    if(alltaxis !== undefined){
+      if(alltaxis.length > 0){
+        return(
+          alltaxis.map((t, index) => {
+            return(
+              <div className='card taxiCard' key={t._id}>
+                <h4>{t.taxiType}</h4>
+                <img src={i} alt="taxi" className='taxiCardImg' />
+                <h6>Cost Per Day: {t.pricePerDay}</h6>
+                <h6>Driver: {t.driver}</h6>
+                <h6>No.of Seats: {t.noOfSeats}</h6>
+                {/* {import(t.image).then((image) => {
+                  this.setState({i: image})
+                })}
+                <img src={t.image} alt='taxi' />
+                <img src={URL.createObjectURL(t.image)} alt='taxi' />
+                <img src={i} alt="" />
+                {t.image.toString()} */}
+                <div className='row'>
                 <div className='col d-flex justify-content-center'>
-                  <button className='Button deleteBtn'>Delete</button>
+                    <button className='Button updateBtn'>Update</button>
+                  </div>
+                  <div className='col d-flex justify-content-center'>
+                    <button className='Button deleteBtn'>Delete</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          )
-        })
-      )
+            )
+          })
+        )
+      }
     }
   }
 
