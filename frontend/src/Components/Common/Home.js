@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component} from 'react'
 
 import {getUserData} from '../../functions/commonFunctions';
 
@@ -23,6 +23,7 @@ export default class Home extends Component {
       <div>
         <h1>Home Page</h1>
         <h3>{this.state.userData.name}'s Account</h3>
+        <h3>This is a/an {this.state.userData.userType} Account</h3>
       </div>
     )
   }

@@ -1,6 +1,3 @@
-.App{
-    text-align: center;
-  }
   
   nav{
     display: flex;
@@ -36,4 +33,83 @@
 
   .link:hover{
     color: rgb(10, 95, 95);
+  }
+
+  .loginBtn{
+    background-color: white;
+    color: black;
+    width: 160px;
+    height: 40px;
+    border-radius: 8px;
+    border: transparent;
+  }
+
+  .loginBtn:hover{
+    background-color: aqua;
+    color: blue;
+  }
+
+  .main-container{
+    margin-bottom: 40px;
+  }
+
+  .menu-card{
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .menu-card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.5s;
+  }  
+
+  .hearder-menu{
+    padding-top: 4%;
+    text-align: center;
+  }
+
+  .menuImg{
+    width: 40%;
+    height: 150px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .menuItem{
+    color: black;
+    text-decoration: none;
+  }
+
+  /************************** Login css ********************************/
+  .login-card{
+    width: 60%;
+    margin-top: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .input-section{
+    padding-top: 20px;
+  }
+
+  .col-label{
+    margin-left: 40px;
+  }
+
+  .input-field{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 2px;
+    border: 1px solid black;
+    margin-right: 40px;
+  }
+
+  .formLoginBtn{
+    background-color: #12528a;
+    margin-right: 40px;
+    color: rgb(255, 255, 255);
+    height: 40px;
+    border-radius: 8px;
+    border: transparent;
   }
