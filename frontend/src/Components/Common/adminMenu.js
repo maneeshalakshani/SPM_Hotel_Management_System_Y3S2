@@ -21,7 +21,7 @@ export default class adminMenu extends Component {
             </Link>
           </div>
           <div className='col'>
-            <Link to='/addTaxi'>
+            <Link to='/admin-selectTaxiOption'>
               <div className='card menu-card'>
                 <img src={taxi} alt='taxi' className='menuImg' />
                 <h3 className='menuItem'>Taxi Management</h3>

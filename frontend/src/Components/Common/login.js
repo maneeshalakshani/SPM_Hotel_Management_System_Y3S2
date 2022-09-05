@@ -35,11 +35,11 @@ export default class login extends Component {
             </div>
             <div className='row input-section'>
                 <label className='col col-label'>Email Address</label>
-                <input className='col input-field' type='email' placeholder='Enter email' onChange={e => this.setState({email: e.target.value})} />
+                <input className='col input-field login-input-field' type='email' placeholder='Enter email' onChange={e => this.setState({email: e.target.value})} />
             </div>
             <div className='row input-section'>
                 <label className='col col-label'>Password</label>
-                <input className='col input-field' type='password' placeholder='Enter password' onChange={e => this.setState({password: e.target.value})} />
+                <input className='col input-field login-input-field' type='password' placeholder='Enter password' onChange={e => this.setState({password: e.target.value})} />
             </div>
             <div className='row input-section'>
                 <div className='col col-label'></div>
