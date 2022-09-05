@@ -25,30 +25,40 @@ export default class Register extends Component {
 
   render() {
     return (
-        <div>
-            <form onSubmit={this.handleSubmit}>
-                <h1>Register</h1>
-                <div>
-                    <label>Name</label>
-                    <input type='text' placeholder='Enter name' onChange={e => this.setState({ name: e.target.value })} />
+        <div className='container'>
+            <form className='card login-card' onSubmit={this.handleSubmit}>
+              <div className='row'>
+                <div className='row input-section'>
+                  <div className='col col-label'>
+                    <h1>Register</h1>
+                  </div>
                 </div>
-                <div>
-                    <label>Email Address</label>
-                    <input type='email' placeholder='Enter email' onChange={e => this.setState({ email: e.target.value })} />
+                <div className='row input-section'>
+                  <label className='col col-label'>Name</label>
+                  <input className='col input-field' type='text' placeholder='Enter name' onChange={e => this.setState({ name: e.target.value })} />
                 </div>
-                <div>
-                    <label>Password</label>
-                    <input type='password' placeholder='Enter password' onChange={e => this.setState({ pw: e.target.value })} />
+                <div className='row input-section'>
+                  <label className='col col-label'>Email Address</label>
+                  <input className='col input-field' type='email' placeholder='Enter email' onChange={e => this.setState({ email: e.target.value })} />
                 </div>
-                <div>
-                    <button type='submit'>Register</button>
+                <div className='row input-section'>
+                  <label className='col col-label'>Password</label>
+                  <input className='col input-field' type='password' placeholder='Enter password' onChange={e => this.setState({ pw: e.target.value })} />
                 </div>
-                <div>
-                  Login to the system 
-                  <Link to='/' className='link'>
-                    Login
-                  </Link>
+                <div className='row input-section'>
+                  <div className='col col-label'></div>
+                  <button className='col formLoginBtn' type='submit'>Register</button>
                 </div>
+                <div className='row input-section'>
+                  <div className='col col-label'></div>
+                    <div className='col'>
+                      <label>Register to the system</label>
+                      <Link to='/' className='link'>
+                        Login
+                      </Link>
+                    </div>
+                </div>
+              </div>
             </form>
         </div>
     )

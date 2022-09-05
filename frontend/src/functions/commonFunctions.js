@@ -28,7 +28,13 @@ export const register = async (userDetails) => {
             email: userDetails.email,
             password: userDetails.pw
         })
-    }).then((res) => res.json()).then((data) => console.log(data, "userRegister"));
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data, "userRegister")
+        alert("User Registerd Sucessfully")
+        window.location.href = "./";
+    });
 }
 
 export const Login = async (user) => {
@@ -49,9 +55,10 @@ export const Login = async (user) => {
     .then((data) => {
         console.log("User Logged" , data)
         if(data.status === "OK"){
-            alert("Login Sucessfull");
             window.localStorage.setItem("token", data.data);
             window.location.href = "./home";
+        }else{
+            alert("Wrong Password or email");
         }
     })
 }

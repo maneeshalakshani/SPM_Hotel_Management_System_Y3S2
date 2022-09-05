@@ -19,6 +19,22 @@ exports.register = async (req, res) => {
     }
 }
 
+exports.adminRegister = async (req, res) => {
+    const{name, email, password} = req.body;
+    userType = 'admin';
+    try{
+        const userObj = new User({name, email, password, userType})
+        const oldUser = await User.findOne({email});
+        if(oldUser){
+            return res.send({error: "User exist"});
+        }
+        const user = await userObj.save();
+        res.status(200).json(user);
+    }catch(err){
+        res.status(500).json(err);
+    }
+}
+
 
 exports.login = async (req, res) => {
     const{email, password} = req.body;
