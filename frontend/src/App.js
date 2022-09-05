@@ -10,8 +10,10 @@ import Register from './Components/Common/Register';
 import AdminMenu from './Components/Common/adminMenu';
 import UserMenu from './Components/Common/userMenu';
 
+import SelectTaxiOption from './Components/Taxi/AdminSide/SelectTaxiOption';
 import AddTaxi from './Components/Taxi/AdminSide/AddTaxi';
-import ViewAllTaxis from './Components/Taxi/CustomerSide/ViewAllTaxis';
+import ViewAllTaxis from './Components/Taxi/AdminSide/ViewAllTaxis';
+import CustomerViewAll from './Components/Taxi/CustomerSide/CustomerViewAll';
 
 function App() {
   return(
@@ -26,8 +28,11 @@ function App() {
         <Route path='/adminMenu' exact element={<AdminMenu />} />
         <Route path='/userMenu' exact element={<UserMenu />} />
 
+        {/* Taxi Routes */}
+        <Route path='/admin-selectTaxiOption' exact element={<SelectTaxiOption />} />
         <Route path='/addTaxi' exact element={<AddTaxi />} />
-        <Route path='/viewAllTaxis' element={<ViewAllTaxis />} />
+        <Route path='/admin-viewAllTaxis' element={<ViewAllTaxis />} />
+        <Route path='/customer-viewAllTaxis' element={<CustomerViewAll />} />
       </Routes>
     </div>
   </Router>

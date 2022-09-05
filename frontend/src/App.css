@@ -100,8 +100,12 @@
   .input-field{
     padding-top: 10px;
     padding-bottom: 10px;
-    border-radius: 2px;
+    padding-left: 20px;
+    border-radius: 4px;
     border: 1px solid black;
+  }
+
+  .login-input-field{
     margin-right: 40px;
   }
 
@@ -113,3 +117,40 @@
     border-radius: 8px;
     border: transparent;
   }
+
+ /************************** Add a Taxi css ********************************/
+ .taxiMenu{
+  padding-top: 5%;
+ }
+
+ .taxi-input-field{
+  width: 100%;
+ }
+
+ .pro-pic-upload{
+  display: none;
+ }
+
+ .taxi-pro-pic{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid black;
+ }
+
+ .second-col{
+  margin-left: 50px;
+ }
+
+ .Button{
+  width: 100%;
+    background-color: #12528a;
+    color: rgb(255, 255, 255);
+    height: 40px;
+    border-radius: 8px;
+    border: transparent;
+ }
+
+ .taxi-add-btn{
+    margin-top: 50px;
+ }
