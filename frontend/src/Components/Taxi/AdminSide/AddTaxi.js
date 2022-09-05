@@ -80,7 +80,7 @@ export default class AddTaxi extends Component {
                     this.setState({image: e.target.files[0]})
                     this.changeImage(e)
                   }} />
-                  <img src={taxiDefault} className='taxi-pro-pic' />
+                  <img src={taxiDefault} alt='addTaxiImg' className='taxi-pro-pic' />
                 </label>
               </div>
               <div className='input-section'>

@@ -7,7 +7,8 @@ const Taxi = require('../../models/TaxiModels/TaxiModel');
 //upload taxi image to uploads/taxi folder============================================================
 const multerConfig = multer.diskStorage({
     destination: (req, res, callback) => {
-        callback(null, 'uploads/taxi/');
+        // callback(null, 'uploads/taxi/');
+        callback(null, '../frontend/src/images/Taxi_Images/uploads/');
     },
     filename: (req, file, callback) => {
         const max = 999999999;
@@ -28,7 +29,10 @@ exports.uploadImage = upload.single('image');
 //Add Taxi==========================================================================================
 exports.addTaxi = async (req, res) => {
     const {taxiType, pricePerDay, noOfSeats, driver} = req.body;
-    const image = req.file.path;
+    let image = req.file.path;
+
+    let i = image;
+    image = '../../..' + i.split("src")[1].replace(/\\/g, '/').toString();
  
     const taxi = new Taxi({taxiType, pricePerDay, noOfSeats, driver, image})
     try{
