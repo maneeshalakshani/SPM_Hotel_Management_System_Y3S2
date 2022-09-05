@@ -21,3 +21,13 @@ export const getAllTaxis = async () => {
     })
     return taxis;
 }
+
+export const deleteTaxi = async (id) => {
+    try{
+        await axios.delete(`http://localhost:8082/taxi/deleteTaxi/${id}`).then((res) => {
+        
+        })
+    }catch(err){
+        console.log("Error", err)
+    }
+}

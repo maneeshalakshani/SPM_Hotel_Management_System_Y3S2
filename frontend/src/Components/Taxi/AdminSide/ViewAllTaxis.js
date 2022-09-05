@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { getAllTaxis } from '../../../functions/taxiFunctions'
+import { deleteTaxi, getAllTaxis } from '../../../functions/taxiFunctions'
 
-import i from '../../../images/Taxi_Images/uploads/789676470.png';
+import i from '../../../images/Taxi_Images/uploads/446470492.jpeg';
 
 export default class ViewAllTaxis extends Component {
 
@@ -20,11 +20,21 @@ export default class ViewAllTaxis extends Component {
     })
   }
 
+  DeleteTaxiFunc(id){
+    deleteTaxi(id);
+    getAllTaxis().then((data) => {
+      this.setState({
+        taxis: data
+      })
+    })
+  }
+
   displayAllTaxis(alltaxis) {
     if(alltaxis !== undefined){
       if(alltaxis.length > 0){
         return(
           alltaxis.map((t, index) => {
+            console.log("T: "+ t)
             return(
               <div className='card taxiCard' key={t._id}>
                 <h4>{t.taxiType}</h4>
@@ -44,7 +54,7 @@ export default class ViewAllTaxis extends Component {
                     <button className='Button updateBtn'>Update</button>
                   </div>
                   <div className='col d-flex justify-content-center'>
-                    <button className='Button deleteBtn'>Delete</button>
+                    <button className='Button deleteBtn' onClick={() => this.DeleteTaxiFunc(t._id)}>Delete</button>
                   </div>
                 </div>
               </div>
