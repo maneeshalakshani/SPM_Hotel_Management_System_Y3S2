@@ -48,6 +48,7 @@ export const updateTaxi = async (id, taxi) => {
         headers: {'Content-type': 'multipart/form-data'} 
     }).then((res) => {
         alert("Updated Sucessfully");
+        // window.location.href = '../admin-viewAllTaxis'
     }).catch(err => {
         console.log("Error: ", err)
     })
