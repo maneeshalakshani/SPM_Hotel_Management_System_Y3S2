@@ -41,12 +41,12 @@ export default class Nav extends Component {
         </Link>
 
         <ul className='nav-links'>
-          <Link style={navStyle} to='/about'>
+          <Link className='navlink' to='/about'>
             <li>About</li>
           </Link>
           {
             this.state.role === 'admin' 
-            ? <Link style={navStyle} to='/adminMenu'>
+            ? <Link className='navlink' to='/adminMenu'>
                 <li>Admin Menu</li>
               </Link>
             : this.state.role === null ? null :<Link style={navStyle} to='/userMenu'><li>User Menu</li></Link>
