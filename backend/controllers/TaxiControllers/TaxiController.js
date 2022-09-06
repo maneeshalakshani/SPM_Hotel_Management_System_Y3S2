@@ -126,7 +126,7 @@ exports.updateTaxi = async (req, res) => {
         }
 
         const obj = await Taxi.findByIdAndUpdate(id, taxiObj);
-        res.status(200).json({'message': 'Updated Sucessfully', 'Result': obj})
+        res.status(200).json({'message': 'Updated Sucessfully', 'Result': taxiObj})
 
     }catch(err){
         res.status(500).json({'Error': err});

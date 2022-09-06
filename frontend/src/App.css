@@ -179,6 +179,9 @@
  .updateBtn{
   width: 60%;
   background-color: rgb(32, 173, 22);
+  text-align: center;
+  text-decoration: none;
+  padding-top: 6px;
  }
 
  .deleteBtn{
@@ -188,4 +191,5 @@
 
 .updateBtn:hover, .deleteBtn:hover{
   background-color: goldenrod;
+  color: white;
 }
