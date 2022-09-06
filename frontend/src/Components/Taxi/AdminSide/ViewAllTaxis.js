@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom';
+
 import { deleteTaxi, getAllTaxis } from '../../../functions/taxiFunctions'
 
 import i from '../../../images/Taxi_Images/uploads/446470492.jpeg';
@@ -34,7 +36,6 @@ export default class ViewAllTaxis extends Component {
       if(alltaxis.length > 0){
         return(
           alltaxis.map((t, index) => {
-            console.log("T: "+ t)
             return(
               <div className='card taxiCard' key={t._id}>
                 <h4>{t.taxiType}</h4>
@@ -50,8 +51,10 @@ export default class ViewAllTaxis extends Component {
                 <img src={i} alt="" />
                 {t.image.toString()} */}
                 <div className='row'>
-                <div className='col d-flex justify-content-center'>
-                    <button className='Button updateBtn'>Update</button>
+                  <div className='col d-flex justify-content-center'>
+                    <Link to={{pathname: `/updateTaxi/${t._id}`, param1: "Par1"}} className='Button updateBtn'>
+                      Update
+                    </Link>
                   </div>
                   <div className='col d-flex justify-content-center'>
                     <button className='Button deleteBtn' onClick={() => this.DeleteTaxiFunc(t._id)}>Delete</button>

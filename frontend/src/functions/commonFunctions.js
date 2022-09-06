@@ -78,7 +78,6 @@ export const getUserData = async () => {
     })
     .then((res) => res.json())
     .then((data) => {
-        console.log("User Data fetched" , data)
         return data['data'];
     })
     return user;
