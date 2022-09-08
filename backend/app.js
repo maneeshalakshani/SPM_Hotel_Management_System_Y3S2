@@ -31,12 +31,14 @@ const taxiRouter = require('./routes/TaxiRouters/TaxiRoute');
 const menudRouter= require('./routes/MenuRotters/MenuDetailsRouter');
 const roomsRouter= require('./routes/RoomRouters/RoomRouter');
 const commonRoutes = require('./routes/commonRoutes');
+const hallRouter = require('./routes/HallRouters/HallRouter');
 
 //routes
 app.use('/taxi', taxiRouter);
 app.use('/menud',menudRouter);
 app.use('/rooms', roomsRouter);
 app.use('/', commonRoutes)
+app.use('/halls', hallRouter)
 
 
 
