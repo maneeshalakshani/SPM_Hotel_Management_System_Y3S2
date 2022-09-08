@@ -5,11 +5,9 @@ const Room = require('../../models/RoomModels/RoomModel');
 //upload room images to uploads/rooms folder===========================================================
 const config = multer.diskStorage({
     destination: (req, res, callback) => {
-        callback(null, 'uploads/rooms/');
+        callback(null, '../frontend/src/images/Rooms_Images/uploads/');
     },
     filename: (req, file, callback) => {
-        const max = 999999999;
-        const min = 100000000;
         callback(null, file.originalname);
     }
 })
@@ -81,7 +79,7 @@ exports.updateRoom = async (req, res) => {
         }
 
         const obj = await Room.findByIdAndUpdate(id, RoomObj);
-        res.status(200).json({'message': 'Room Details Updated Sucessfully', 'Result': obj})
+        res.status(200).json({'message': 'Room Details Updated Sucessfully', 'Result': RoomObj})
 
     }catch(err){
         res.status(500).json({'Error': err});
