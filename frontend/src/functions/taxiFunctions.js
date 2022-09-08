@@ -22,6 +22,16 @@ export const getAllTaxis = async () => {
     return taxis;
 }
 
+export const getTaxi = async (id) => {
+    let taxi = await axios.get(`http://localhost:8082/taxi/getTaxi/${id}`).then((res) => {
+        let taxiObj = res.data.Result;
+        return taxiObj;
+    }).catch((err) => {
+        console.log("Error", err)
+    })
+    return taxi;
+}
+
 export const deleteTaxi = async (id) => {
     try{
         await axios.delete(`http://localhost:8082/taxi/deleteTaxi/${id}`).then((res) => {
@@ -30,4 +40,16 @@ export const deleteTaxi = async (id) => {
     }catch(err){
         console.log("Error", err)
     }
+}
+
+
+export const updateTaxi = async (id, taxi) => {
+    await axios.put(`http://localhost:8082/taxi/updateTaxi/${id}`, taxi, {
+        headers: {'Content-type': 'multipart/form-data'} 
+    }).then((res) => {
+        alert("Updated Sucessfully");
+        // window.location.href = '../admin-viewAllTaxis'
+    }).catch(err => {
+        console.log("Error: ", err)
+    })
 }

@@ -13,7 +13,7 @@ export default class adminMenu extends Component {
         <div className='row'>
           <h1 className='hearder-menu'>Admin Menu</h1>
           <div className='col'>
-            <Link to='/addTaxi'>
+            <Link to='/home'>
               <div className='card menu-card'>
                 <img src={food} alt='food' className='menuImg' />
                 <h3 className='menuItem'>Food Management</h3>
@@ -31,7 +31,7 @@ export default class adminMenu extends Component {
         </div>
         <div className='row'>
           <div className='col'>
-            <Link to='/addTaxi'>
+            <Link to='/home'>
               <div className='card menu-card'>
                 <img src={hall} alt='hall' className='menuImg' />
                 <h3 className='menuItem'>Hall Management</h3>

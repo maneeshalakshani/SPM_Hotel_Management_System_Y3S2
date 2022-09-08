@@ -10,11 +10,13 @@ import Login from './Components/Common/login';
 import Register from './Components/Common/Register';
 import AdminMenu from './Components/Common/adminMenu';
 import UserMenu from './Components/Common/userMenu';
+import Footer from './Components/Common/Footer';
 
 import SelectTaxiOption from './Components/Taxi/AdminSide/SelectTaxiOption';
 import AddTaxi from './Components/Taxi/AdminSide/AddTaxi';
 import ViewAllTaxis from './Components/Taxi/AdminSide/ViewAllTaxis';
 import CustomerViewAll from './Components/Taxi/CustomerSide/CustomerViewAll';
+import UpdateTaxi from './Components/Taxi/AdminSide/UpdateTaxi';
 
 import ViewAllRooms from './Components/Room/AdminSide/ViewAllRooms';
 import AddRoom from './Components/Room/AdminSide/AddRoom';
@@ -43,8 +45,12 @@ function App() {
         <Route path='/addRoom' exact element={<AddRoom />} />
         <Route path='/admin-viewAllRooms' element={<ViewAllRooms />} />
         <Route path='/updateRoom' exact element={<UpdateRoom />} />
+
+        <Route path='/updateTaxi/:id' element={<UpdateTaxi />} />
+
       </Routes>
     </div>
+    <Footer />
   </Router>
   );
 }
