@@ -23,6 +23,10 @@ import ViewAllRooms from './Components/Room/AdminSide/ViewAllRooms';
 import AddRoom from './Components/Room/AdminSide/AddRoom';
 //import UpdateRoom from './Components/Room/AdminSide/UpdateRoom';
 
+import ViewAllRooms from './Components/Room/AdminSide/ViewAllRooms';
+import AddRoom from './Components/Room/AdminSide/AddRoom';
+import UpdateRoom from './Components/Room/AdminSide/UpdateRoom';
+
 function App() {
   return(
     <Router>
