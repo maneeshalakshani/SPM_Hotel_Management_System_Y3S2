@@ -21,7 +21,7 @@ import CustomerTaxiOption from './Components/Taxi/CustomerSide/CustomerTaxiOptio
 
 import ViewAllRooms from './Components/Room/AdminSide/ViewAllRooms';
 import AddRoom from './Components/Room/AdminSide/AddRoom';
-import UpdateRoom from './Components/Room/AdminSide/UpdateRoom';
+//import UpdateRoom from './Components/Room/AdminSide/UpdateRoom';
 
 function App() {
   return(
@@ -41,6 +41,7 @@ function App() {
         <Route path='/customer-selectTaxiOption' element={<CustomerTaxiOption />} />
         <Route path='/addTaxi' exact element={<AddTaxi />} />
         <Route path='/admin-viewAllTaxis' element={<ViewAllTaxis />} />
+        <Route path='/updateTaxi/:id' element={<UpdateTaxi />} />
         <Route path='/customer-viewAllTaxis' element={<CustomerViewAll />} />
 
         {/* Rooms Routes */}

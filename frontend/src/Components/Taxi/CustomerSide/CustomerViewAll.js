@@ -4,7 +4,7 @@ import '../../../App.css';
 import {Link} from 'react-router-dom';
 import { getAllTaxis } from '../../../functions/taxiFunctions'
 
-import i from '../../../images/Taxi_Images/uploads/446470492.jpeg';
+import i from '../../../images/Taxi_Images/taxi.png';
 
 export default class CustomerViewAll extends Component {
 
