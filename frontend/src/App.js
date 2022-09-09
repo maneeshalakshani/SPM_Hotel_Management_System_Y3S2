@@ -17,6 +17,11 @@ import AddTaxi from './Components/Taxi/AdminSide/AddTaxi';
 import ViewAllTaxis from './Components/Taxi/AdminSide/ViewAllTaxis';
 import CustomerViewAll from './Components/Taxi/CustomerSide/CustomerViewAll';
 import UpdateTaxi from './Components/Taxi/AdminSide/UpdateTaxi';
+import CustomerTaxiOption from './Components/Taxi/CustomerSide/CustomerTaxiOption';
+
+import ViewAllRooms from './Components/Room/AdminSide/ViewAllRooms';
+import AddRoom from './Components/Room/AdminSide/AddRoom';
+//import UpdateRoom from './Components/Room/AdminSide/UpdateRoom';
 
 import ViewAllRooms from './Components/Room/AdminSide/ViewAllRooms';
 import AddRoom from './Components/Room/AdminSide/AddRoom';
@@ -37,17 +42,17 @@ function App() {
 
         {/* Taxi Routes */}
         <Route path='/admin-selectTaxiOption' exact element={<SelectTaxiOption />} />
+        <Route path='/customer-selectTaxiOption' element={<CustomerTaxiOption />} />
         <Route path='/addTaxi' exact element={<AddTaxi />} />
         <Route path='/admin-viewAllTaxis' element={<ViewAllTaxis />} />
+        <Route path='/updateTaxi/:id' element={<UpdateTaxi />} />
         <Route path='/customer-viewAllTaxis' element={<CustomerViewAll />} />
+        <Route path='/updateTaxi/:id' element={<UpdateTaxi />} />
 
         {/* Rooms Routes */}
         <Route path='/addRoom' exact element={<AddRoom />} />
         <Route path='/admin-viewAllRooms' element={<ViewAllRooms />} />
-        <Route path='/updateRoom' exact element={<UpdateRoom />} />
-
-        <Route path='/updateTaxi/:id' element={<UpdateTaxi />} />
-
+        {/* <Route path='/updateRoom' exact element={<UpdateRoom />} /> */}
       </Routes>
     </div>
     <Footer />

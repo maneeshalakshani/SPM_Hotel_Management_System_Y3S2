@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom';
 
 import { deleteTaxi, getAllTaxis } from '../../../functions/taxiFunctions'
 
-import i from '../../../images/Taxi_Images/uploads/446470492.jpeg';
-
 export default class ViewAllTaxis extends Component {
 
   constructor(props){
@@ -36,20 +34,15 @@ export default class ViewAllTaxis extends Component {
       if(alltaxis.length > 0){
         return(
           alltaxis.map((t, index) => {
+            let path = t.image;
+            console.log(path)
             return(
               <div className='card taxiCard' key={t._id}>
                 <h4>{t.taxiType}</h4>
-                <img src={i} alt="taxi" className='taxiCardImg' />
+                <img src={t.image} alt="taxi" className='taxiCardImg' />
                 <h6>Cost Per Day: {t.pricePerDay}</h6>
                 <h6>Driver: {t.driver}</h6>
                 <h6>No.of Seats: {t.noOfSeats}</h6>
-                {/* {import(t.image).then((image) => {
-                  this.setState({i: image})
-                })}
-                <img src={t.image} alt='taxi' />
-                <img src={URL.createObjectURL(t.image)} alt='taxi' />
-                <img src={i} alt="" />
-                {t.image.toString()} */}
                 <div className='row'>
                   <div className='col d-flex justify-content-center'>
                     <Link to={{pathname: `/updateTaxi/${t._id}`, param1: "Par1"}} className='Button updateBtn'>
