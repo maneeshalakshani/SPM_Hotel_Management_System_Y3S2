@@ -26,7 +26,7 @@ export default class Nav extends Component {
     if(window.localStorage !== null){
       window.localStorage.clear();
     }
-    window.location.href = "./";
+    // window.location.href = "./";
   }
 
   render() {
@@ -51,7 +51,11 @@ export default class Nav extends Component {
               </Link>
             : this.state.role === null ? null :<Link style={navStyle} to='/userMenu'><li>User Menu</li></Link>
           }
-          <li><button className='loginBtn' onClick={this.removeData}>Logout/Login</button></li>
+          <li>
+            <Link to='/'>
+              <button className='loginBtn' onClick={this.removeData}>Logout/Login</button>
+            </Link>
+          </li>
         </ul>
     </nav>
     )

@@ -13,7 +13,7 @@ export default class userMenu extends Component {
         <div className='row'>
           <h1 className='hearder-menu'>Customer Menu</h1>
           <div className='col'>
-            <Link to='/viewAllTaxis'>
+            <Link to='/home'>
               <div className='card menu-card'>
                 <img src={food} alt='food' className='menuImg' />
                 <h3 className='menuItem'>Order Food</h3>
@@ -21,7 +21,7 @@ export default class userMenu extends Component {
             </Link>
           </div>
           <div className='col'>
-            <Link to='/viewAllTaxis'>
+            <Link to='/customer-selectTaxiOption'>
               <div className='card menu-card'>
                 <img src={taxi} alt='taxi' className='menuImg' />
                 <h3 className='menuItem'>Book Taxi</h3>
@@ -31,7 +31,7 @@ export default class userMenu extends Component {
         </div>
         <div className='row'>
           <div className='col'>
-            <Link to='/viewAllTaxis'>
+            <Link to='/home'>
               <div className='card menu-card'>
                 <img src={hall} alt='hall' className='menuImg' />
                 <h3 className='menuItem'>Book Hall</h3>
@@ -39,7 +39,7 @@ export default class userMenu extends Component {
             </Link>
           </div>
           <div className='col'>
-            <Link to='/viewAllTaxis'>
+            <Link to='/home'>
               <div className='card menu-card'>
                 <img src={room} alt='room' className='menuImg' />
                 <h3 className='menuItem'>Book Room</h3>
