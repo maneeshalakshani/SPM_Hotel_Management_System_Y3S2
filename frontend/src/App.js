@@ -16,6 +16,7 @@ import AddTaxi from './Components/Taxi/AdminSide/AddTaxi';
 import ViewAllTaxis from './Components/Taxi/AdminSide/ViewAllTaxis';
 import CustomerViewAll from './Components/Taxi/CustomerSide/CustomerViewAll';
 import UpdateTaxi from './Components/Taxi/AdminSide/UpdateTaxi';
+import CustomerTaxiOption from './Components/Taxi/CustomerSide/CustomerTaxiOption';
 
 function App() {
   return(
@@ -32,6 +33,7 @@ function App() {
 
         {/* Taxi Routes */}
         <Route path='/admin-selectTaxiOption' exact element={<SelectTaxiOption />} />
+        <Route path='/customer-selectTaxiOption' element={<CustomerTaxiOption />} />
         <Route path='/addTaxi' exact element={<AddTaxi />} />
         <Route path='/admin-viewAllTaxis' element={<ViewAllTaxis />} />
         <Route path='/customer-viewAllTaxis' element={<CustomerViewAll />} />

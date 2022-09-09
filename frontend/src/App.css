@@ -258,3 +258,19 @@
   background-color: goldenrod;
   color: white;
 }
+
+/************************ Taxi Book 1 css **************************/
+
+.taxiBookBtn{
+  width: 30%;
+  background-color: rgb(34, 34, 129);
+  text-align: center;
+  text-decoration: none;
+  padding-top: 6px;
+  margin-top: 15px;
+}
+
+.taxiBookBtn:hover{
+  color: white;
+  background-color: rgb(59, 59, 189);
+}
