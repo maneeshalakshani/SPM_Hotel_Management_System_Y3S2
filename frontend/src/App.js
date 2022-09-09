@@ -43,11 +43,12 @@ function App() {
         <Route path='/admin-viewAllTaxis' element={<ViewAllTaxis />} />
         <Route path='/updateTaxi/:id' element={<UpdateTaxi />} />
         <Route path='/customer-viewAllTaxis' element={<CustomerViewAll />} />
+        <Route path='/updateTaxi/:id' element={<UpdateTaxi />} />
 
         {/* Rooms Routes */}
         <Route path='/addRoom' exact element={<AddRoom />} />
         <Route path='/admin-viewAllRooms' element={<ViewAllRooms />} />
-        <Route path='/updateRoom' exact element={<UpdateRoom />} />
+        {/* <Route path='/updateRoom' exact element={<UpdateRoom />} /> */}
       </Routes>
     </div>
     <Footer />
