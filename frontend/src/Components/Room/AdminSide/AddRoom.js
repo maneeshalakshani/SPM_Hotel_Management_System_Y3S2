@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { addRoom } from "../../../functions/roomFunctions";
 
 import Button from "react-bootstrap/Button";
@@ -8,15 +7,20 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 
 const AddRoom = () => {
-  const [roomType, setRoomType] = useState("");
+  const [roomType, setRoomType] = useState('Select a Room Type');
   const [roomPrice, setRoomPrice] = useState();
-  const [roomFeatures, setRoomFeatures] = useState("");
+  const [roomFeatures, setRoomFeatures] = useState('Choose one or more options');
   const [description, setDescription] = useState("");
   const [images, setImages] = useState("");
 
+  
   const onChangeImage = (e) => {
     setImages(e.target.files[0]);
-  }
+  };
+
+  const handleRedirect = () => {
+    window.location.href = "/Rooms(admin)";
+  };
 
   const sendData = (e) => {
     e.preventDefault();
@@ -29,11 +33,11 @@ const AddRoom = () => {
     formData.append("description", description);
     formData.append("images", images);
 
-    setRoomType('')
-    setRoomPrice('')
-    setRoomFeatures('')
-    setDescription('')
-    setImages('')
+    setRoomType('Select a Room Type');
+    setRoomPrice("");
+    setRoomFeatures('Choose one or more options');
+    setDescription("");
+    setImages("");
 
     addRoom(formData);
   };
@@ -48,12 +52,12 @@ const AddRoom = () => {
             <Form.Group as={Col} controlId="formGridRoomType">
               <Form.Label>Room Type</Form.Label>
               <Form.Select
-              value={roomType}
+                value={roomType}
                 defaultValue="Select a Room Type"
                 onChange={(e) => {
                   setRoomType(e.target.value);
                 }}>
-                <option>Select a Room Type</option>
+                <option>Select a room type</option>
                 <option>Triple Deluxe Room</option>
                 <option>Triple Basic Room</option>
                 <option>Triple Economy Room</option>
@@ -67,10 +71,10 @@ const AddRoom = () => {
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridRoomPrice">
-              <Form.Label>Room Price</Form.Label>
+              <Form.Label>Room Price (USD)</Form.Label>
               <Form.Control
-              value={roomPrice}
-                placeholder="Room Price"
+                value={roomPrice}
+                placeholder="Room Price( 200$-500$  )"
                 onChange={(e) => {
                   setRoomPrice(e.target.value);
                 }}
@@ -81,13 +85,17 @@ const AddRoom = () => {
           <Form.Group className="mb-3" controlId="formGridRoomFeatures">
             <Form.Label>Room Features</Form.Label>
             <Form.Select
-            value={roomFeatures}
-              defaultValue="Select a Room Type"
+              value={roomFeatures}
+              defaultValue="Choose one or more options"
               onChange={(e) => {
                 setRoomFeatures(e.target.value);
               }}>
-              <option>Choose one or more options</option>
-              <option>...</option>
+              <option disabled>Choose one or more options</option>
+              <option>Conditioned Air</option>
+              <option>Mini Bar</option>
+              <option>Wi-Fi Connection</option>
+              <option>Direct Phone</option>
+              <option>Cable Staellite Tv and Movie on demand</option>
             </Form.Select>
           </Form.Group>
 
@@ -106,18 +114,15 @@ const AddRoom = () => {
 
           <Form.Group controlId="formMainImage" className="mb-3">
             <Form.Label>Main Image</Form.Label>
-            <Form.Control
-              type="file"
-              onChange={onChangeImage}
-            />
+            <Form.Control type="file" onChange={onChangeImage} />
           </Form.Group>
 
           <div className="d-grid gap-2 mt-4">
             <Button variant="primary" type="submit" size="lg">
               Create Room
             </Button>
-            <Button variant="dark" size="lg">
-              <NavLink to="/admin-viewAllRooms">Back To Main</NavLink>
+            <Button onClick={() => handleRedirect()} variant="dark" size="lg">
+              Back To Main
             </Button>
           </div>
         </Form>

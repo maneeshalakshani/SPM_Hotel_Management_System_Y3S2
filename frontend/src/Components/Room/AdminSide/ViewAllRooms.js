@@ -1,51 +1,81 @@
-import React, { useState, useEffect } from "react";
-import {NavLink} from "react-router-dom";
-import axios from 'axios'
+import React, { Component } from "react";
+import { Link, NavLink } from "react-router-dom";
+import Button from "react-bootstrap/esm/Button";
 
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import { deleteRoom, getAllRooms } from "../../../functions/roomFunctions";
+import i from "../../../images/Taxi_Images/uploads/446470492.jpeg";
+export default class ViewAllRooms extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rooms: [],
+    };
+  }
 
+  getAllRms() {
+    getAllRooms().then((data) => {
+      this.setState({
+        rooms: data,
+      });
+    });
+  }
 
-import room from "../../../images/Common/room.jpg";
+  componentDidMount() {
+    this.getAllRms();
+  }
 
-const ViewAllRooms = () => {
+  DeleteRoomFunc(id) {
+    deleteRoom(id);
+    this.getAllRms();
+  }
 
-  const [rooms, setRooms] = useState([]);
+  displayAllRooms(allRooms) {
+    if (allRooms !== undefined) {
+      if (allRooms.length > 0) {
+        return allRooms.map((t, key) => {
+          return (
+            <div className="card taxiCard" key={t._id}>
+              <h4>{t.roomType}</h4>
+              <img src={i} alt={t.roomType} className="roomCardImg" />
+              <h6>Per Night : {t.roomPrice}$</h6>
+              <div className="row">
+                <div className="col d-flex justify-content-center">
+                  <Link
+                    to={{ pathname: `/updateRoom/${t._id}`, param1: "Par1" }}
+                    className="Button rmupdateBtn">
+                    Update
+                  </Link>
+                </div>
+                <div className="col d-flex justify-content-center">
+                  <button
+                    className="Button rmdeleteBtn"
+                    onClick={() => this.DeleteRoomFunc(t._id)}>
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        });
+      }
+    }
+  }
 
-  useEffect(() => {
-    axios.get('http://localhost:8082/rooms/').then((res) => {
-      console.log(res.data)
-      setRooms(res.data)
-    }).catch((err) => {
-        console.log('Error: ', err)
-    }) 
-  }, [])
-  
-
-  return (
-    <div className="container mt-2">
-      <h1 className="text-center mt-4">Rooms List</h1>
-
-      <div className="text-end mt-5">
-        <Button variant="outline-dark"><NavLink to="/addRoom">+ Add New Room</NavLink></Button>
+  render() {
+    return (
+      <div className="container main-container">
+        <div className="row">
+          <h1 className="text-center mt-4">Rooms List</h1>
+        </div>
+        <div className="text-end mt-5">
+          <Button className="AddNwRmBtn" variant="outline-dark"><NavLink className="navLink" to="/addRoom">+ Add New Room</NavLink></Button>
+        </div>
+        <div className="row">
+          <div className="grid-container">
+            {this.displayAllRooms(this.state.rooms)}
+          </div>
+        </div>
       </div>
-
-      <div className="row d-flex justify-content-start align-items-center mt-5">
-        <Card style={{ width: "17rem", height: "17rem" }} className="mb-3">
-          <Card.Img variant="top"className="mt-3" />
-          <Card.Body className="text-center">
-            <Card.Title className="mt-1">Triple Deluxe Room</Card.Title>
-            <Button variant="warning" className="m-3">
-              Update
-            </Button>
-            <Button variant="danger" className="m-3">
-              Delete
-            </Button>
-          </Card.Body>
-        </Card>
-      </div>
-    </div>
-  );
-};
-
-export default ViewAllRooms;
+    );
+  }
+}

@@ -260,6 +260,48 @@
   color: white;
 }
 
+
+/************************** See all Rooms css ********************************/
+
+.roomCard{
+  width: 90%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 20px;
+}
+
+.grid-container-rooms{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.roomCardImg{
+width: 200px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+.rmupdateBtn{
+  width: 60%;
+  background-color: rgb(32, 173, 22);
+  text-align: center;
+  text-decoration: none;
+  padding-top: 6px;
+ }
+
+ .rmdeleteBtn{
+  width: 60%;
+  background-color: red;
+ }
+
+.rmupdateBtn:hover{
+  color: white;
+}
+
+.AddNwRmBtn{
+  margin-right: 18px;
+  margin-bottom: 30px;
+
 /************************ Taxi Book 1 css **************************/
 
 .taxiBookBtn{
@@ -274,4 +316,5 @@
 .taxiBookBtn:hover{
   color: white;
   background-color: rgb(59, 59, 189);
+
 }
