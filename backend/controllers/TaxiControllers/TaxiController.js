@@ -8,7 +8,8 @@ const Taxi = require('../../models/TaxiModels/TaxiModel');
 const multerConfig = multer.diskStorage({
     destination: (req, res, callback) => {
         // callback(null, 'uploads/taxi/');
-        callback(null, '../frontend/src/images/Taxi_Images/uploads/');
+        // callback(null, '../frontend/src/images/Taxi_Images/uploads/');
+        callback(null, '../frontend/public/images/Taxi_Images/uploads/');
     },
     filename: (req, file, callback) => {
         const max = 999999999;
@@ -32,7 +33,8 @@ exports.addTaxi = async (req, res) => {
     let image = req.file.path;
 
     let i = image;
-    image = '../../..' + i.split("src")[1].replace(/\\/g, '/').toString();
+    // image = '../../../..' + i.split("frontend")[1].replace(/\\/g, '/').toString();
+    image = i.split("public")[1].replace(/\\/g, '/').toString();
  
     const taxi = new Taxi({taxiType, pricePerDay, noOfSeats, driver, image})
     try{
@@ -95,27 +97,12 @@ exports.updateTaxi = async (req, res) => {
         
         try{
             image = req.file.path;
+            let i = image;
+            image = i.split("public")[1].replace(/\\/g, '/').toString();
         }catch(err){
             image = taxiToUpdate.image;
             console.log(image);
         }
-
-        // if(taxiType.length == 0){
-        //     taxiType = taxiToUpdate.taxiType;
-        //     console.log("UP : " + taxiType);
-        // }
-        // if(pricePerDay.length == 0){
-        //     pricePerDay = taxiToUpdate.pricePerDay;
-        //     console.log("UP : " + pricePerDay);
-        // }
-        // if(noOfSeats.length == 0){
-        //     noOfSeats = taxiToUpdate.noOfSeats;
-        //     console.log("UP : " + noOfSeats);
-        // }
-        // if(driver.length == 0){
-        //     driver = taxiToUpdate.driver;
-        //     console.log("UP : " + driver);
-        // }
 
         var taxiObj = {
             "taxiType": taxiType,
