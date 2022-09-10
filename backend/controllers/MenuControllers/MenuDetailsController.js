@@ -8,13 +8,13 @@ const router = require('../../routes/TaxiRouters/TaxiRoute');
 //Add menu=========================
 
 const addMenud = async(req, res, next)=>{
-    const {menuId,menuname,menuprice,appetizers,salads,soups,riceNodl,chicken,beef,pork,vegitables,dessert
+    const {menuId,menuname,menuprice,welcomedrinks,appetizers,salads,soups,riceNodl,chicken,beef,pork,vegitables,dessert
     } = req.body;
    
     let menud;
     try{
         menud=new MenuDetails({
-            menuId,menuname,menuprice,appetizers,salads,soups,riceNodl,chicken,beef,pork,vegitables,dessert
+            menuId,menuname,menuprice,appetizers,welcomedrinks,salads,soups,riceNodl,chicken,beef,pork,vegitables,dessert
 
         });
         await menud.save();
@@ -75,14 +75,14 @@ exports.getmenu=getmenu;
 
 const updateMenu= async(req, res, next)=>{
     const id = req.params.id;
-    const{menuname,menuprice,appetizers,salads,soups,riceNodl,chicken,beef,pork,vegitables,dessert} = req.body;
+    const{menuname,menuprice,appetizers,welcomedrinks,salads,soups,riceNodl,chicken,beef,pork,vegitables,dessert} = req.body;
     let menu;
     try{
         menu = await MenuDetails.findByIdAndUpdate(id,{
             menuname,
             menuprice,
             appetizers,
-            appetizers,
+            welcomedrinks,
             salads,
             soups,
             riceNodl,
@@ -90,7 +90,8 @@ const updateMenu= async(req, res, next)=>{
             beef,
             pork,
             vegitables,
-            dessert
+            dessert,
+     
         });
         menu=await menu.save()
     }catch(err){

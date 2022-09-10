@@ -1,7 +1,7 @@
   footer{
     width: 100%;
     margin-top: 4%;
-    padding: 4% 8%;
+    padding: 1% 8%;
     background: rgb(20, 68, 93);
     color: white;
   }
@@ -261,6 +261,34 @@
 }
 
 
+/******************Add menu*************************/
+.menuform{
+  background-image:url(./images/Menu_Images/catering-buffet-food.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color: rgb(250, 250, 250);
+}
+
+.menuforminside{
+  background-color: rgba(0, 0, 0, 0.612);
+}
+.savebutton{
+  width: 60%;
+  background-color: #132e7a;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  left: 20%;
+
+}
+
+
 /************************** See all Rooms css ********************************/
 
 .roomCard{
@@ -318,3 +346,4 @@ margin-bottom: 10px;
   background-color: rgb(59, 59, 189);
 
 }
+

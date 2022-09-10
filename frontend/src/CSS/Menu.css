@@ -1,0 +1,228 @@
+.ulcard{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+  
+  }
+
+  .ulcardforadminmenuhome{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+  
+  }
+
+  .cardofmenus {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .foodimage{
+    width: 100%;
+  }
+
+  .viewsinglemenu{
+    border: none;
+    outline: 0;
+    color: white;
+    background-color: rgb(247, 175, 98);
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    text-decoration-color: rgb(254, 254, 254);
+    padding: 0.5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .headerimg{
+      background-image: url(../images/Menu_Images/headerimg.jpg);
+      height: 100%;
+      width: 100%;
+    
+    }
+
+    .maintopic{
+      font-size:80px;
+      text-shadow: 2px 2px 8px #fff200;
+    }
+  .hedertopic{
+    text-align: center;
+    color: white;
+    font-family: Georgia, serif;
+    text-shadow: 2px 2px 8px #ff9100;
+ 
+    background-color: rgba(0, 0, 0, 0.549);
+  }
+  
+  
+  
+
+/*viewsinglemenu*/
+  .menuposter{
+    width: 50%;
+    text-align: center;
+    background-image: url(../images/Menu_Images/menuoster.jpg);
+    background-size: 100%;
+    color: aliceblue;
+  
+  }
+  .menuposterimg{
+    width: 100%;
+  }
+
+  .topic{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.664);
+    color: goldenrod;
+    padding: 5px 20px;
+
+  }
+/*************menusettings********/
+.menusettings{
+  text-align: center;
+}
+  .customers {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 50%;
+    text-align: center;
+    border: 1px solid;
+  }
+  
+  .customers td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    width: 20%;
+  }
+
+.updatebutton{
+    border: none;
+    outline: 0;
+    background-color: rgb(243, 213, 65);
+    cursor: pointer;
+    width: 100%;
+    font-size: 15px;
+    padding: -10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    border-radius: 4px;
+}
+  
+.deletebutton{
+    border: none;
+    outline: 0;
+    background-color: rgb(187, 3, 3);
+    cursor: pointer;
+    width: 100%;
+    font-size: 15px;
+    padding: -10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/***** adminmenu home***********/
+
+.cardofmenusforadminhome{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 500px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  
+}
+.viewlink{
+  border: none;
+  outline: 0;
+  color: white;
+  background-color: rgb(247, 175, 98);
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+  text-decoration-color: rgb(254, 254, 254);
+  padding: 0.5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+}
+.imageforadminhome{
+  width: 60%;
+}
+
+/***************delete menu*************/
+.deletebackground{
+  background-image:url(../images/Menu_Images/headerimg.jpg) ;
+  width: 100%;
+
+
+}
+.deletebackgroundshed{
+  background-color: rgba(0, 0, 0, 0.44);
+}
+.deletecard{
+  border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 800px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    color: rgb(22, 5, 5);
+    background-color: #ddd;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.deleteul{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.yesdeletebutton{
+  border: none;
+  border-radius: 5px;
+  outline: 0;
+  height: 60px;
+  color: white;
+  background-color: rgb(28, 126, 195);
+  cursor: pointer;
+  padding: 0.5px 20px;
+  font-size: 20px;
+  text-decoration-color: rgb(254, 254, 254);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.cancelbutton{
+  border: none;
+  border-radius: 5px;
+  outline: 0;
+  color: white;
+  height: 60px;
+  background-color: rgb(249, 50, 10);
+  cursor: pointer;
+  font-size: 20px;
+  text-decoration-color: rgb(254, 254, 254);
+  padding: 0.5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+}
