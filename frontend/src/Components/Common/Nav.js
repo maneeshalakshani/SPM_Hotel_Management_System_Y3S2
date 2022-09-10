@@ -44,6 +44,10 @@ export default class Nav extends Component {
           <Link className='navlink' to='/about'>
             <li>About</li>
           </Link>
+
+          <Link className='navlink' to='/viewmenu'>
+            <li>Menus</li>
+          </Link>
           {
             this.state.role === 'admin' 
             ? <Link className='navlink' to='/adminMenu'>

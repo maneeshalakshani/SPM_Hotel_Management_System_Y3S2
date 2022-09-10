@@ -10,6 +10,10 @@ var menudSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    welcomedrinks:{
+        type: String,
+        required: true
+    },
     appetizers:{
         type: String,
         required: true
@@ -45,7 +49,8 @@ var menudSchema = new mongoose.Schema({
     dessert:{
         type: String,
         required: true
-    }
+    },
+    
 
    
 });

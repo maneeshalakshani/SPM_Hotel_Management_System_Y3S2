@@ -13,7 +13,7 @@ export default class adminMenu extends Component {
         <div className='row'>
           <h1 className='hearder-menu'>Admin Menu</h1>
           <div className='col'>
-            <Link to='/home'>
+            <Link to='/menuhome'>
               <div className='card menu-card'>
                 <img src={food} alt='food' className='menuImg' />
                 <h3 className='menuItem'>Food Management</h3>

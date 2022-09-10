@@ -16,6 +16,15 @@ import AddTaxi from './Components/Taxi/AdminSide/AddTaxi';
 import ViewAllTaxis from './Components/Taxi/AdminSide/ViewAllTaxis';
 import CustomerViewAll from './Components/Taxi/CustomerSide/CustomerViewAll';
 import UpdateTaxi from './Components/Taxi/AdminSide/UpdateTaxi';
+import Adminmenuhome from './Components/Menu/Adminmenuside/Adminmenuhome';
+import Addmenu from './Components/Menu/Adminmenuside/Addmenu';
+import Viewmenuadmin from './Components/Menu/Adminmenuside/Viewmenuadmin';
+import Adminview from './Components/Menu/Adminmenuside/Adminview';
+import ViewSingleMenu from './Components/Menu/Adminmenuside/ViewSingleMenu';
+import UpdateMenu from './Components/Menu/Adminmenuside/Updatemenu';
+import Menusetting from './Components/Menu/Adminmenuside/Menusetting';
+import Mainmenusetting from './Components/Menu/Adminmenuside/Mainmenusetting';
+import Deletemenu from './Components/Menu/Adminmenuside/Deletemenu';
 
 function App() {
   return(
@@ -36,6 +45,19 @@ function App() {
         <Route path='/admin-viewAllTaxis' element={<ViewAllTaxis />} />
         <Route path='/customer-viewAllTaxis' element={<CustomerViewAll />} />
         <Route path='/updateTaxi/:id' element={<UpdateTaxi />} />
+
+        {/*Menu Routes */}
+        <Route path='/menuhome' exact element={<Adminmenuhome/>}/>
+        <Route path='/addmenu' exact element={<Addmenu/>}/>
+        <Route path='/viewmenu' exact element={<Viewmenuadmin/>}/>
+        <Route path='/adminviewmenu' exact element={<Adminview/>}/>
+        <Route path="/viewmenu/:id" exact element={<ViewSingleMenu/>}/>
+        <Route path="/updatemenu/:id" exact element={<UpdateMenu/>}/>
+        <Route path='/menusetting' exact element={<Menusetting/>}/>
+        <Route path='/mainmenusetting' exact element={<Mainmenusetting/>}/>
+        <Route path='/deletemenu/:id' exact element={<Deletemenu/>}/>
+     
+
       </Routes>
     </div>
     <Footer />
