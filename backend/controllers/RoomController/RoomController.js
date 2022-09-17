@@ -5,10 +5,14 @@ const Room = require('../../models/RoomModels/RoomModel');
 //upload room images to uploads/rooms folder===========================================================
 const config = multer.diskStorage({
     destination: (req, res, callback) => {
-        callback(null, '../frontend/src/images/Rooms_Images/uploads/');
+        callback(null, '../frontend/public/images/Rooms_Images/uploads/');
     },
     filename: (req, file, callback) => {
-        callback(null, file.originalname);
+        const max = 999999999;
+        const min = 100000000;
+        let random = Math.floor(Math.random() * (max - min + 1) + min);
+        let extension = file.mimetype.split('/')[1];
+        callback(null, `${random}.${extension}`);
     }
 })
 
@@ -22,7 +26,10 @@ exports.uploadImage = upload.single('images');
 //Add a Room===========================================================================================
 exports.addRoom = async (req, res) => {
     const {roomType, roomPrice, roomFeatures, description} = req.body;
-    const images = req.file.path
+    let images = req.file.path;
+
+    let i = images;
+    images = i.split("public")[1].replace(/\\/g, '/').toString();
  
     const room = new Room({roomType, roomPrice, roomFeatures, description, images})
     try{
@@ -59,12 +66,14 @@ exports.updateRoom = async (req, res) => {
     try{
         const {id} = req.params;
         let {roomType, roomPrice, roomFeatures, description} = req.body;
-        let image;
+        let images;
         
         const RoomToUpdate = await Room.findById(id);
         
         try{
-            image = req.file.path;
+            images = req.file.path;
+            let i = images;
+            images = i.split("public")[1].replace(/\\/g, '/').toString();
         }catch(err){
             image = RoomToUpdate.image;
             console.log(image);
