@@ -23,10 +23,60 @@
     color: wheat;
     height: 100%;
   }
+/***********home **********/
+.facilityul{
+  display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.facilityul1{
+  display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.hottelwall{
+  background-image: url(./images/Common/icons/hottel.jpg);
+  position: relative;
+  left: 0%;
+  width: 100%;
+  background-size: cover;
+  color:white;
+  text-shadow: 2px 2px 8px #3bb9ef;
+}
+.hottelwall1{
+  background-color: rgba(0, 0, 0, 0.355);
+}
 
+.hottelwall2{
+  text-align: center;
+  font-family: Georgia, serif;
+}
+.luxury{
+  color: goldenrod;
+  font-size:65px;
+}
+.luxury2{
+  color: goldenrod;
+  font-size:40px;
+}
   .home-title{
     padding-top: 5%;
     font-size: 80px;
+    text-align: center;
+    font-family: Georgia, serif;
+    
+  }
+  .htlimgs{
+    width: 480px;
+    height: 260px;
+  }
+  #welcome{
+    font-size: 40px;
+    text-shadow: 2px 2px 8px #cc5409;
   }
 
   nav{
@@ -97,9 +147,9 @@
   }
 
   .menu-card{
-    margin-top: 20px;
-    padding-top: 20px;
+    margin-top: 30px;
     padding-bottom: 20px;
+    width: 450px;
   }
 
   .menu-card:hover, .taxiCard:hover{
@@ -113,11 +163,24 @@
   }
 
   .menuImg{
-    width: 40%;
-    height: 150px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
+    width: 100%;
+    height: 100%;
+}
+.menuimglink{
+  border: none;
+  outline: 0;
+  color: white;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+  text-decoration-color: rgb(254, 254, 254);
+  padding: 0.5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+}
 
   .menuItem{
     color: black;
@@ -262,8 +325,20 @@
 
 
 /******************Add menu*************************/
+.formfeild{
+  background-color: rgba(15, 15, 15, 0.444);
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(255, 253, 253);
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: white;
+}
+
 .menuform{
-  background-image:url(./images/Menu_Images/catering-buffet-food.jpg);
+  background-image:url(./images/Menu_Images/addmenubackground.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -285,6 +360,7 @@
   cursor: pointer;
   position: absolute;
   left: 20%;
+  border: 1px solid rgb(255, 253, 253);
 
 }
 
@@ -329,7 +405,7 @@ margin-bottom: 10px;
 .AddNwRmBtn{
   margin-right: 18px;
   margin-bottom: 30px;
-
+}
 /************************ Taxi Book 1 css **************************/
 
 .taxiBookBtn{

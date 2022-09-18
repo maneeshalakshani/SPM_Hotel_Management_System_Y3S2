@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import Button from "react-bootstrap/esm/Button";
 
 import { deleteRoom, getAllRooms } from "../../../functions/roomFunctions";
-import i from "../../../images/Taxi_Images/uploads/446470492.jpeg";
+import i from "../../../images/Taxi_Images/taxi.png";
 export default class ViewAllRooms extends Component {
   constructor(props) {
     super(props);
