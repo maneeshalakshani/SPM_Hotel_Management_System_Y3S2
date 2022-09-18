@@ -11,7 +11,7 @@ const Adminview =(props)=>{
     <div className="cardofmenus">
         <img className="foodimage"src={cardimage} alt={menuname}></img>
         <h1>{menuname}</h1>
-        <article>{menuprice}</article>
+        <article>Rs. {menuprice}</article>
         <Link className="viewsinglemenu" to ={`/viewmenu/${_id}`}><p className='menuItem'>View menu</p></Link>
     </div>
     </div>

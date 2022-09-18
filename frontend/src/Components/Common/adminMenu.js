@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 
-import food from '../../images/Common/food.png';
-import taxi from '../../images/Common/taxi.png';
-import hall from '../../images/Common/hall.jpg';
-import room from '../../images/Common/room.jpg';
+import food from '../../images/Common/menumanage.jpg';
+import taxi from '../../images/Common/taximanage.jpg';
+import hall from '../../images/Common/hallmanage.jpg';
+import room from '../../images/Common/roommanage.jpg';
 
 export default class adminMenu extends Component {
   render() {
@@ -13,7 +13,7 @@ export default class adminMenu extends Component {
         <div className='row'>
           <h1 className='hearder-menu'>Admin Menu</h1>
           <div className='col'>
-            <Link to='/menuhome'>
+            <Link className='menuimglink' to='/menuhome'>
               <div className='card menu-card'>
                 <img src={food} alt='food' className='menuImg' />
                 <h3 className='menuItem'>Food Management</h3>
@@ -21,7 +21,7 @@ export default class adminMenu extends Component {
             </Link>
           </div>
           <div className='col'>
-            <Link to='/admin-selectTaxiOption'>
+            <Link className='menuimglink' to='/admin-selectTaxiOption'>
               <div className='card menu-card'>
                 <img src={taxi} alt='taxi' className='menuImg' />
                 <h3 className='menuItem'>Taxi Management</h3>
@@ -31,7 +31,7 @@ export default class adminMenu extends Component {
         </div>
         <div className='row'>
           <div className='col'>
-            <Link to='/home'>
+            <Link className='menuimglink' to='/home'>
               <div className='card menu-card'>
                 <img src={hall} alt='hall' className='menuImg' />
                 <h3 className='menuItem'>Hall Management</h3>
@@ -39,7 +39,7 @@ export default class adminMenu extends Component {
             </Link>
           </div>
           <div className='col'>
-            <Link to='/Rooms(admin)'>
+            <Link className='menuimglink' to='/Rooms(admin)'>
               <div className='card menu-card'>
                 <img src={room} alt='room' className='menuImg' />
                 <h3 className='menuItem'>Room Management</h3>
