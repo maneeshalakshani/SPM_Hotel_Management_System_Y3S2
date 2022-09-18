@@ -4,15 +4,17 @@ import Button from "react-bootstrap/esm/Button";
 
 import { deleteRoom, getAllRooms } from "../../../functions/roomFunctions";
 import i from "../../../images/Taxi_Images/taxi.png";
+// import i from "../../../images/Rooms_Images/uploads/ayhOPR.webp";
+
 export default class ViewAllRooms extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rooms: [],
+      rooms: "",
     };
   }
 
-  getAllRms() {
+  componentDidMount() {
     getAllRooms().then((data) => {
       this.setState({
         rooms: data,
@@ -20,23 +22,28 @@ export default class ViewAllRooms extends Component {
     });
   }
 
-  componentDidMount() {
-    this.getAllRms();
+  handleRedirect() {
+    window.location.href = "/addRoom"
   }
 
   DeleteRoomFunc(id) {
     deleteRoom(id);
-    this.getAllRms();
+    getAllRooms().then((data) => {
+      this.setState({
+        rooms: data,
+      });
+    });
   }
 
   displayAllRooms(allRooms) {
     if (allRooms !== undefined) {
       if (allRooms.length > 0) {
-        return allRooms.map((t, key) => {
+        return (
+          allRooms.map((t, index) => {
           return (
-            <div className="card taxiCard" key={t._id}>
+            <div className="card roomCard" key={t._id}>
               <h4>{t.roomType}</h4>
-              <img src={i} alt={t.roomType} className="roomCardImg" />
+              <img src={t.images} alt="image" className="roomCardImg" />
               <h6>Per Night : {t.roomPrice}$</h6>
               <div className="row">
                 <div className="col d-flex justify-content-center">
@@ -56,8 +63,8 @@ export default class ViewAllRooms extends Component {
               </div>
             </div>
           );
-        });
-      }
+        })
+      )}
     }
   }
 
@@ -68,7 +75,9 @@ export default class ViewAllRooms extends Component {
           <h1 className="text-center mt-4">Rooms List</h1>
         </div>
         <div className="text-end mt-5">
-          <Button className="AddNwRmBtn" variant="outline-dark"><NavLink className="navLink" to="/addRoom">+ Add New Room</NavLink></Button>
+          <Button onClick={this.handleRedirect} className="AddNwRmBtn" variant="outline-dark">
+              + Add New Room
+          </Button>
         </div>
         <div className="row">
           <div className="grid-container">
