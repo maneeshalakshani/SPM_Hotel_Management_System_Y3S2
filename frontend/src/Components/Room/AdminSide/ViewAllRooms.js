@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/esm/Button";
 
 import { deleteRoom, getAllRooms } from "../../../functions/roomFunctions";
-// import i from "../../../images/Rooms_Images/uploads/ayhOPR.webp";
+
 export default class ViewAllRooms extends Component {
   constructor(props) {
     super(props);
@@ -37,16 +37,16 @@ export default class ViewAllRooms extends Component {
     if (allRooms !== undefined) {
       if (allRooms.length > 0) {
         return (
-          allRooms.map((t, index) => {
+          allRooms.map((r, index) => {
           return (
-            <div className="card roomCard" key={t._id}>
-              <h4>{t.roomType}</h4>
-              <img src={t.images} alt="image" className="roomCardImg" />
-              <h6>Per Night : {t.roomPrice}$</h6>
+            <div className="card roomCard" key={r._id}>
+              <h4>{r.roomType}</h4>
+              <img src={r.images} alt="img" className="roomCardImg" />
+              <h6>Per Night : {r.roomPrice}$</h6>
               <div className="row">
                 <div className="col d-flex justify-content-center">
                   <Link
-                    to={{ pathname: `/updateRoom/${t._id}`, param1: "Par1" }}
+                    to={{ pathname: `/updateRoom/${r._id}`, param1: "Par1" }}
                     className="Button rmupdateBtn">
                     Update
                   </Link>
@@ -54,7 +54,7 @@ export default class ViewAllRooms extends Component {
                 <div className="col d-flex justify-content-center">
                   <button
                     className="Button rmdeleteBtn"
-                    onClick={() => this.DeleteRoomFunc(t._id)}>
+                    onClick={() => this.DeleteRoomFunc(r._id)}>
                     Delete
                   </button>
                 </div>

@@ -39,7 +39,7 @@ export default class adminMenu extends Component {
             </Link>
           </div>
           <div className='col'>
-            <Link to='/Rooms(admin)'>
+            <Link to='/allRooms'>
               <div className='card menu-card'>
                 <img src={room} alt='room' className='menuImg' />
                 <h3 className='menuItem'>Room Management</h3>

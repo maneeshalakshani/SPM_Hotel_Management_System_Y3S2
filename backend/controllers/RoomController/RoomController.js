@@ -75,8 +75,8 @@ exports.updateRoom = async (req, res) => {
             let i = images;
             images = i.split("public")[1].replace(/\\/g, '/').toString();
         }catch(err){
-            image = RoomToUpdate.image;
-            console.log(image);
+            images = RoomToUpdate.images;
+            console.log(images);
         }
 
         var RoomObj = {
@@ -84,7 +84,7 @@ exports.updateRoom = async (req, res) => {
             "roomPrice": roomPrice,
             "roomFeatures": roomFeatures,
             "description": description,
-            "image": image
+            "images": images
         }
 
         const obj = await Room.findByIdAndUpdate(id, RoomObj);
