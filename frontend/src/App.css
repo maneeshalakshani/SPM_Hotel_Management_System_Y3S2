@@ -423,3 +423,23 @@ margin-bottom: 10px;
 
 }
 
+/************************** Add a Room css ********************************/
+.roomMenu{
+  padding-top: 5%;
+ }
+
+ .room-input-field{
+  width: 100%;
+ }
+
+ .room-pro-pic{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid black;
+ }
+
+ .room-add-btn{
+    margin-top: 50px;
+ }
+

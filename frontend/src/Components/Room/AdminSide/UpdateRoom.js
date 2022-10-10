@@ -1,157 +1,233 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { Component } from "react";
 import { updateRoom, getRoom } from "../../../functions/roomFunctions";
+import Button from "react-bootstrap/esm/Button";
+import {
+  roomValidity,
+} from "../../../functions/Validation/Roomvalidation";
 
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-
-const UpdateRoom = () => {
-  const [roomType, setRoomType] = useState("");
-  const [roomPrice, setRoomPrice] = useState();
-  const [roomFeatures, setRoomFeatures] = useState("");
-  const [description, setDescription] = useState("");
-  const [images, setImages] = useState("");
-
-  const [rooms, setRooms] = useState({});
-
-  const {id} = useParams();
-
-  const handleRedirect = () => {
-    window.location.href = "/Rooms(admin)"
+export default class UpdateRoom extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: "",
+      roomType: "",
+      roomPrice: 0,
+      roomFeatures: "",
+      description: "",
+      id: window.location.pathname.split("/")[2],
+      room: "",
+      roomDefault: "/images/Room_Images/room.png",
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  const getRooms = async () => {
-    await getRoom(id).then((res) => {
-        setRooms(res);
-        setRoomType(res.roomType)
-        setRoomPrice(res.roomPrice)
-        setRoomFeatures(res.roomFeatures)
-        setDescription(res.description)
-        setImages(res.images)
-    }).catch((e) => {console.error(e.message)})
+  componentDidMount() {
+    getRoom(this.state.id).then((data) => {
+      this.setState({
+        room: data,
+        roomType: this.state.room.roomType,
+        roomPrice: this.state.room.roomPrice,
+        roomFeatures: this.state.room.roomFeatures,
+        description: this.state.room.description,
+        roomDefault: this.state.room.images,
+      });
+    });
   }
 
-  useEffect(() => {
-    getRooms();
-  }, []);
-  
-
-  const onChangeImage = (e) => {
-    setImages(e.target.files[0]);
+  changeImage(e) {
+    let reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = (event) => {
+      this.setState({ roomDefault: event.target.result });
+      this.setState.roomDefault = event.target.result;
+    };
   }
 
-  const sendData = (e) => {
+  checkInputs() {
+    let type = this.state.roomType;
+    let price = document.getElementById("price").value;
+    let features = this.state.features;
+    let description = document.getElementById("description").value;
+    let images = document.getElementById("images").value;
+
+    let typeErr = document.getElementById("typeErr");
+    let priceErr = document.getElementById("priceErr");
+    let ftrErr = document.getElementById("ftrErr");
+    let desErr = document.getElementById("desErr");
+    let imagesErr = document.getElementById("imagesErr");
+
+    var vInput = { type, price, features, description, images };
+    var errInput = { typeErr, priceErr, ftrErr, desErr, imagesErr };
+
+    return roomValidity(vInput, errInput, 'update');
+  }
+
+  handleSubmit(e) {
     e.preventDefault();
+    const { images, roomType, roomPrice, roomFeatures, description } =
+      this.state;
 
-    const formData = new FormData();
+    let doSubmit = this.checkInputs();
 
-    formData.append("roomType", roomType);
-    formData.append("roomPrice", roomPrice);
-    formData.append("roomFeatures", roomFeatures);
-    formData.append("description", description);
-    formData.append("images", images);
+    if (doSubmit === true) {
+      const formData = new FormData();
+      formData.append("images", images);
+      formData.append("roomType", roomType);
+      formData.append("roomPrice", roomPrice);
+      formData.append("roomFeatures", roomFeatures);
+      formData.append("description", description);
 
-    setRoomType('')
-    setRoomPrice('')
-    setRoomFeatures('')
-    setDescription('')
-    setImages('')
+      updateRoom(this.state.id, formData);
+    }
+  }
 
-    updateRoom(formData);
-  };
+  handleRedirect() {
+    window.location.href = "/allRooms"
+  }
 
-  return (
-    <div className="container mt-3">
-      <h1 className="text-center mt-4">Update a Room</h1>
-
-      <div className="container mt-5">
-        <Form onSubmit={sendData} method="post" encType="multipart/form-data">
-          <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridRoomType">
-              <Form.Label>Room Type</Form.Label>
-              <Form.Select
-              value={roomType}
-                defaultValue="Select a Room Type"
-                onChange={(e) => {
-                  setRoomType(e.target.value);
-                }}>
-                <option disabled>Select a Room Type</option>
-                <option>Triple Deluxe Room</option>
-                <option>Triple Basic Room</option>
-                <option>Triple Economy Room</option>
-                <option>Double Deluxe Room</option>
-                <option>Double Basic Room</option>
-                <option>Double Economy Room</option>
-                <option>Single Deluxe Room</option>
-                <option>Single Basic Room</option>
-                <option>Single Economy Room</option>
-              </Form.Select>
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridRoomPrice">
-              <Form.Label>Room Price (USD)</Form.Label>
-              <Form.Control
-              value={roomPrice}
-                placeholder="Room Price(200$-500$)"
-                onChange={(e) => {
-                  setRoomPrice(e.target.value);
-                }}
-              />
-            </Form.Group>
-          </Row>
-
-          <Form.Group className="mb-3" controlId="formGridRoomFeatures">
-            <Form.Label>Room Features</Form.Label>
-            <Form.Select
-            value={roomFeatures}
-              defaultValue="Select a Room Type"
-              onChange={(e) => {
-                setRoomFeatures(e.target.value);
-              }}>
-              <option>Choose one or more options</option>
-              <option>Conditioned Air</option>
-              <option>Mini Bar</option>
-              <option>Wi-Fi Connection</option>
-              <option>Direct Phone</option>
-              <option>Cable Staellite Tv and Movie on demand</option>
-            </Form.Select>
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formGridDescription">
-            <Form.Label>Description</Form.Label>
-            <Form.Control
-              as="textarea"
-              value={description}
-              placeholder="Update Room Details"
-              style={{ height: "auto" }}
-              onChange={(e) => {
-                setDescription(e.target.value);
-              }}
-            />
-          </Form.Group>
-
-          <Form.Group controlId="formMainImage" className="mb-3">
-            <Form.Label>Main Image</Form.Label>
-            <Form.Control
-              type="file"
-              onChange={onChangeImage}
-            />
-          </Form.Group>
-
-          <div className="d-grid gap-2 mt-4">
-            <Button variant="primary" type="submit" size="lg">
-              Update Room
-            </Button>
-            <Button onClick={() => handleRedirect()} variant="dark" size="lg">
-              Back To Main
-            </Button>
+  render() {
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="row roomMenu">
+            <h1>Update Room</h1>
           </div>
-        </Form>
-      </div>
-    </div>
-  );
-};
+          <form
+            className="row"
+            onSubmit={this.handleSubmit}
+            method="post"
+            encType="multipart/form-data">
 
-export default UpdateRoom;
+            <div className="col">
+              <div className="input-section">
+                <label>Room Type</label>
+                <br />
+                <select
+                  className="input-field room-input-field"
+                  id="type"
+                  onChange={(e) => {
+                    this.setState({ roomType: e.target.value });
+                  }}>
+                  <option value={this.state.room.roomType || ''}>
+                    {this.state.room.roomType}
+                  </option>
+                  <option value="Triple Deluxe Room">Triple Deluxe Room</option>
+                  <option value="Triple Basic Room">Triple Basic Room</option>
+                  <option value="Triple Economy Room">
+                    Triple Economy Room
+                  </option>
+                  <option value="Double Deluxe Room">Double Deluxe Room</option>
+                  <option value="Double Basic Room">Double Basic Room</option>
+                  <option value="Double Economy Room">
+                    Double Economy Room
+                  </option>
+                  <option value="Single Deluxe Room">Single Deluxe Room</option>
+                  <option value="Single Basic Room">Single Basic Room</option>
+                  <option value="Single Economy Room">
+                    Single Economy Room
+                  </option>
+                </select>
+                <span id='typeErr'></span>
+              </div>
+
+              <div className="input-section">
+                <label>Room Price (USD)</label>
+                <br />
+                <input
+                  className="input-field room-input-field"
+                  id="price"
+                  type="number"
+                  placeholder="Room Price( 200$-500$  )"
+                  defaultValue={this.state.room.roomPrice || ''}
+                  onChange={(e) => {
+                    this.setState({ roomPrice: e.target.value });
+                  }}
+                />
+                <span id='priceErr'></span>
+              </div>
+              
+              <div className="input-section">
+                <label>Room Features</label>
+                <br />
+                <select
+                  className="input-field room-input-field"
+                  id="features"
+                  onChange={(e) => {
+                    this.setState({ roomFeatures: e.target.value });
+                  }}>
+                  <option value={this.state.room.roomFeatures || ''}>
+                    {this.state.room.roomFeatures}
+                  </option>
+                  <option value="Triple Deluxe Room">Conditioned Air</option>
+                  <option value="Triple Basic Room">Mini Bar</option>
+                  <option value="Triple Economy Room">
+                  Wi-Fi Connection
+                  </option>
+                  <option value="Double Deluxe Room">Direct Phone</option>
+                  <option value="Double Basic Room">Cable Staellite Tv and Movie on demand</option>
+                </select>
+                <span id='ftrErr'></span>
+              </div>
+
+              <div className="input-section">
+                <label>Description</label>
+                <br />
+                <input
+                  className="input-field room-input-field"
+                  id="description"
+                  type='text'
+                  placeholder="Add Room Details"
+                  defaultValue={this.state.room.description || ''}
+                  onChange={(e) => {
+                    this.setState({ description: e.target.value });
+                  }}
+                />
+                <span id='desErr'></span>
+              </div>
+
+            </div>
+
+            <div className="col second-col">
+              <div className="input-section d-flex justify-content-center">
+                <label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="pro-pic-upload"
+                    id="images"
+                    onChange={(e) => {
+                      this.setState({ images: e.target.files[0] });
+                      this.changeImage(e);
+                    }}
+                  />
+                  <img
+                    src={this.state.roomDefault}
+                    alt="addRoomImg"
+                    className="room-pro-pic"
+                  />
+                  <span id='imagesErr'></span>
+                </label>
+              </div>
+
+              <div className="row">
+                <div className="col d-flex justify-content-center">
+                <button type="submit" className="Button room-add-btn">
+                  Update Room
+                </button>
+                </div>
+                <div className="col d-flex justify-content-center">
+                  <Button onClick={this.handleRedirect} className="Button room-add-btn">
+                    Back to All Rooms
+                  </Button>
+                </div>
+              </div>
+
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    );
+  }
+}

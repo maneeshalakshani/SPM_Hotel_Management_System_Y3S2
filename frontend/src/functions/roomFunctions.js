@@ -33,7 +33,7 @@ export const getRoom = async (id) => {
 }
 
 export const updateRoom = async (id, room) => {
-    await axios.put(`http://localhost:8082/updateRoom/${id}`, room, {
+    await axios.put(`http://localhost:8082/rooms/${id}`, room, {
         headers: {'Content-type': 'multipart/form-data'} 
     }).then((res) => {
         alert("Room Details Updated Sucessfully");
@@ -45,6 +45,7 @@ export const updateRoom = async (id, room) => {
 export const deleteRoom = async (id) => {
     try{
         await axios.delete(`http://localhost:8082/rooms/${id}`).then((res) => {
+            // alert("Room Deleted Sucessfully")
         })
     }catch(err){
         console.log("Error", err)

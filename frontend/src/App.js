@@ -72,7 +72,7 @@ function App() {
 
         {/* Rooms Routes */}
         <Route path='/addRoom' exact element={<AddRoom />} />
-        <Route path='/Rooms(admin)' element={<ViewAllRooms />} />
+        <Route path='/allRooms' element={<ViewAllRooms />} />
         <Route path='/updateRoom/:id' exact element={<UpdateRoom />} />
 
 
