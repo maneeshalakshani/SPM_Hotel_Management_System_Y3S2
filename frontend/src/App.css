@@ -460,6 +460,64 @@ margin-bottom: 10px;
   margin-top: 60px;
   margin-bottom: 70px;
   width: 1000px;
+  height: 550px;}
+
+/* ***************************** Hall CSS ********************************* */
+
+ .hallTxt{
+  text-align: left;
+}
+
+.hallimglink{
+  border: none;
+  outline: 0;
+  color: rgb(247, 13, 13);
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  font-size: 20px;
+  text-decoration-color: rgb(254, 254, 254);
+  padding: 0.5px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.halltable {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.halltable-td, .halltable-th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.halltable-th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #2804aa;
+  color: white;
+}
+
+/* .halltable-td, .halltable-th {
+  border: 1px solid #ddd;
+  padding: 8px;
+} */
+
+.hallsingleImg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 70px;
+  width: 1000px;
   height: 550px;
  }
 
@@ -503,6 +561,29 @@ margin-bottom: 10px;
  }
 
  .back-to-rooms-btn{
-  width: 70%;
+  width: 70%;}
+  
+ .halldlsform{
+  font-family: sans-serif;
+  margin-top: 50px;
+  margin-left: 50px;
+ }
+
+ .hallfeatures{
+  margin-top: 50px;
+  margin-left: 50px;
+ }
+
+ .hallbook-input-field{
+  width: 100%;
+ }
+
+ .hall-book-btn{
+  width: 100%;
+  margin-top: 10px;
+ }
+
+ .back-to-halls-btn{
+  width: 100%;
   margin-top: 10px;
  }

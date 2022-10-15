@@ -36,6 +36,12 @@ import UpdateRoom from './Components/Room/AdminSide/UpdateRoom';
 import CusViewAllRooms from './Components/Room/CustomerSide/CustomerViewAllRooms';
 import CusViewRoom from './Components/Room/CustomerSide/CustomerViewRoomDetails';
 
+import AddHall from './Components/Hall/AdminSide/AddHall';
+import ViewAllHalls from './Components/Hall/AdminSide/ViewAllHalls';
+import UpdateHall from './Components/Hall/AdminSide/UpdateHall';
+import CusViewHalls from './Components/Hall/CustomerSide/ViewAllHalls';
+import ViewHall from './Components/Hall/CustomerSide/ViewHall';
+
 
 function App() {
   return(
@@ -78,6 +84,14 @@ function App() {
         <Route path='/updateRoom/:id' exact element={<UpdateRoom />} />
         <Route path='/rooms' exact element={<CusViewAllRooms/>}/>
         <Route path='/room/:id' exact element={<CusViewRoom/>}/>
+
+        {/* Hall Routes */}
+        <Route path='/addHall' exact element={<AddHall />} />
+        <Route path='/admin-viewAllHalls' element={<ViewAllHalls/>} />
+        <Route path='/updateHall/:id' element={<UpdateHall/>} />
+        <Route path='/customer-viewAllHalls' element={<CusViewHalls/>} />
+        <Route path='/viewHall/:id' element={<ViewHall/>} />
+
 
       </Routes>
     </div>
