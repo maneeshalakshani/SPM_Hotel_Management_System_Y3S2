@@ -31,7 +31,8 @@ export default class CustomerViewAll extends Component {
             return(
               <div className='card taxiCard' key={t._id}>
                 <h4>{t.taxiType}</h4>
-                <img src={i} alt="taxi" className='taxiCardImg' />
+                {/* <img src={i} alt="taxi" className='taxiCardImg' /> */}
+                <img src={t.image} alt="taxi" className='taxiCardImg' />
                 {/* {import(t.image).then((image) => {
                   this.setState({i: image})
                 })}
