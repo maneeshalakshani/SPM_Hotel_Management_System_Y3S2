@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 import taxi from '../../../images/Taxi_Images/taxi.png';
 import taxis from '../../../images/Taxi_Images/taxis.jpg';
+import bookedTaxi from '../../../images/Taxi_Images/bookedTaxi.png';
 
 export default class SelectTaxiOption extends Component {
   render() {
@@ -25,6 +26,14 @@ export default class SelectTaxiOption extends Component {
                     <div className='card menu-card'>
                         <img src={taxis} alt='add-a-taxi' className='taxi-option-image' />
                         <h3>Added Taxi List</h3>
+                    </div>
+                </Link>
+            </div>
+            <div className='col'>
+                <Link to='/admin-booked-taxis'>
+                    <div className='card menu-card'>
+                        <img src={bookedTaxi} alt='add-a-taxi' className='taxi-option-image' />
+                        <h3>Booked Taxi List</h3>
                     </div>
                 </Link>
             </div>

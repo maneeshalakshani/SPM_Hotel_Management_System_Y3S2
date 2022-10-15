@@ -504,3 +504,27 @@ margin-bottom: 10px;
 .card-css{
   padding-left: 40px;
 }
+
+
+/********************** Taxi Report ******************************/
+.download-btn{
+  width: 30%;
+  background-color: rgb(34, 157, 168);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-top: 5%;
+  border: none;
+  border-radius: 8px;
+}
+
+.download-btn:hover{
+  color: white;
+  background-color: rgb(59, 59, 189);
+}
+
+.noData-image{
+  width: 100px;
+}
