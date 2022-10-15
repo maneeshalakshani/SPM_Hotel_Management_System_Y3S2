@@ -115,53 +115,45 @@ const CustomerViewRoomDetails = () => {
               </div>
               <div>
                 <Button
-                disabled = {isNaN(total)}
+                  // disabled = {isNaN(total)}
                   variant="dark"
                   onClick={() => handleRedirect()}
                   className="Button back-to-rooms-btn">
-                  Download Receipt
+                  Back to Rooms
                 </Button>
-                <Receipt
-                className="Button back-to-rooms-btn"
-                table="marks-list"
-                filename= "Marksheet"
-                Sheet="MarkSheet"
-                buttonText="Download Marksheet"
-            />
               </div>
             </div>
           </form>
-          
         </div>
       </div>
       <div>
-            <table hidden>
-              <tr>
-                <td>Room Name</td>
-                <td>{roomName}</td>
-              </tr>
-              <tr>
-                <td>Room Type</td>
-                <td>{type}</td>
-              </tr>
-              <tr>
-                <td>Price Per Day</td>
-                <td>{roomPrice}</td>
-              </tr>
-              <tr>
-                <td>Check-In Date</td>
-                <td>{new Date(inDate).toDateString()}</td>
-              </tr>
-              <tr>
-                <td>Check-Out Date</td>
-                <td>{new Date(outDate).toDateString()}</td>
-              </tr>
-              <tr>
-                <td>Total Amount</td>
-                <td>{total}</td>
-              </tr>
-            </table>
-          </div>
+        <table hidden>
+          <tr>
+            <td>Room Name</td>
+            <td>{roomName}</td>
+          </tr>
+          <tr>
+            <td>Room Type</td>
+            <td>{type}</td>
+          </tr>
+          <tr>
+            <td>Price Per Day</td>
+            <td>{roomPrice}</td>
+          </tr>
+          <tr>
+            <td>Check-In Date</td>
+            <td>{new Date(inDate).toDateString()}</td>
+          </tr>
+          <tr>
+            <td>Check-Out Date</td>
+            <td>{new Date(outDate).toDateString()}</td>
+          </tr>
+          <tr>
+            <td>Total Amount</td>
+            <td>{total}</td>
+          </tr>
+        </table>
+      </div>
     </div>
   );
 };
