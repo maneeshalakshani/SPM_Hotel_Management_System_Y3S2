@@ -258,3 +258,208 @@
   background-color: goldenrod;
   color: white;
 }
+
+
+/******************Add menu*************************/
+.formfeild{
+  background-color: rgba(15, 15, 15, 0.444);
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(255, 253, 253);
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: white;
+}
+
+.menuform{
+  background-image:url(./images/Menu_Images/addmenubackground.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color: rgb(250, 250, 250);
+}
+
+.menuforminside{
+  background-color: rgba(0, 0, 0, 0.612);
+}
+.savebutton{
+  width: 60%;
+  background-color: #132e7a;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  left: 20%;
+  border: 1px solid rgb(255, 253, 253);
+
+}
+
+
+/************************** See all Rooms css ********************************/
+
+.roomCard{
+  width: 90%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 20px;
+}
+
+.grid-container-rooms{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.roomCardImg{
+width: 200px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+.rmupdateBtn{
+  width: 60%;
+  background-color: rgb(32, 173, 22);
+  text-align: center;
+  text-decoration: none;
+  padding-top: 6px;
+ }
+
+ .rmdeleteBtn{
+  width: 60%;
+  background-color: red;
+ }
+
+.rmupdateBtn:hover{
+  color: white;
+}
+
+.AddNwRmBtn{
+  margin-right: 18px;
+  margin-bottom: 30px;
+}
+/************************ Taxi Book 1 css **************************/
+
+.taxiBookBtn{
+  width: 30%;
+  background-color: rgb(34, 34, 129);
+  text-align: center;
+  text-decoration: none;
+  padding-top: 6px;
+  margin-top: 15px;
+}
+
+.taxiBookBtn:hover{
+  color: white;
+  background-color: rgb(59, 59, 189);
+
+}
+
+/************************** Add a Room css ********************************/
+.roomMenu{
+  padding-top: 5%;
+ }
+
+ .room-input-field{
+  width: 100%;
+ }
+
+ .room-pro-pic{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid black;
+ }
+
+ .room-add-btn{
+    margin-top: 50px;
+ }
+
+
+/* ***************************** Hall CSS ********************************* */
+
+ .hallTxt{
+  text-align: left;
+}
+
+.hallimglink{
+  border: none;
+  outline: 0;
+  color: rgb(247, 13, 13);
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  font-size: 20px;
+  text-decoration-color: rgb(254, 254, 254);
+  padding: 0.5px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.halltable {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.halltable-td, .halltable-th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.halltable-th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #2804aa;
+  color: white;
+}
+
+/* .halltable-td, .halltable-th {
+  border: 1px solid #ddd;
+  padding: 8px;
+} */
+
+.hallsingleImg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 70px;
+  width: 1000px;
+  height: 550px;
+ }
+
+ .halldlsform{
+  font-family: sans-serif;
+  margin-top: 50px;
+  margin-left: 50px;
+ }
+
+ .hallfeatures{
+  margin-top: 50px;
+  margin-left: 50px;
+ }
+
+ .hallbook-input-field{
+  width: 100%;
+ }
+
+ .hall-book-btn{
+  width: 100%;
+  margin-top: 10px;
+ }
+
+ .back-to-halls-btn{
+  width: 100%;
+  margin-top: 10px;
+ }

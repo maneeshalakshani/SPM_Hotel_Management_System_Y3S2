@@ -31,7 +31,7 @@ export default class userMenu extends Component {
         </div>
         <div className='row'>
           <div className='col'>
-            <Link to='/viewAllTaxis'>
+            <Link className='menuimglink' to='/customer-viewAllHalls'>
               <div className='card menu-card'>
                 <img src={hall} alt='hall' className='menuImg' />
                 <h3 className='menuItem'>Book Hall</h3>
