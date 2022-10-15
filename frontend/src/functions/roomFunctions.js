@@ -51,3 +51,12 @@ export const deleteRoom = async (id) => {
         console.log("Error", err)
     }
 }
+
+export const addRmBooking = async (rmBooking) => {
+    axios.post('http://localhost:8082/room/', rmBooking, {
+    }).then((res) => {
+        alert("Room Booked Sucessfully")
+    }).catch((err) => {
+        console.log('err', err)
+    })
+}

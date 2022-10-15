@@ -12,9 +12,10 @@ export default class AddRoom extends Component {
     super(props);
     this.state = {
       images: roomDefault,
-      roomType: "",
+      roomName: "",
+      type: "",
+      maxCount: 0,
       roomPrice: 0,
-      roomFeatures: "",
       description: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,27 +31,36 @@ export default class AddRoom extends Component {
   }
 
   checkInputs() {
-    let type = this.state.roomType;
+    let name = this.state.roomName;
+    let type = this.state.type;
+    let count = this.state.maxCount;
     let price = document.getElementById("price").value;
-    let features = this.state.features;
     let description = document.getElementById("description").value;
     let images = document.getElementById("images").value;
 
+    let nameErr = document.getElementById("nameErr");
     let typeErr = document.getElementById("typeErr");
+    let countErr = document.getElementById("countErr");
     let priceErr = document.getElementById("priceErr");
-    let ftrErr = document.getElementById("ftrErr");
     let desErr = document.getElementById("desErr");
     let imagesErr = document.getElementById("imagesErr");
 
-    var vInput = { type, price, features, description, images };
-    var errInput = { typeErr, priceErr, ftrErr, desErr, imagesErr };
+    var vInput = { name, type, count, price, description, images };
+    var errInput = {
+      nameErr,
+      typeErr,
+      countErr,
+      priceErr,
+      desErr,
+      imagesErr,
+    };
 
     return roomValidity(vInput, errInput, null);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const { images, roomType, roomPrice, roomFeatures, description } =
+    const { images, type, roomName, maxCount, roomPrice, description } =
       this.state;
 
     let doSubmit = this.checkInputs();
@@ -58,17 +68,26 @@ export default class AddRoom extends Component {
     if (doSubmit === true) {
       const formData = new FormData();
       formData.append("images", images);
-      formData.append("roomType", roomType);
+      formData.append("roomName", roomName);
+      formData.append("type", type);
+      formData.append("maxCount", maxCount);
       formData.append("roomPrice", roomPrice);
-      formData.append("roomFeatures", roomFeatures);
       formData.append("description", description);
 
       addRoom(formData);
+
+      this.setState({
+        roomName: "",
+        type: "",
+        maxCount: "",
+        roomPrice: "",
+        description: "",
+      });
     }
   }
 
   handleRedirect() {
-    window.location.href = "/allRooms"
+    window.location.href = "/allRooms";
   }
 
   render() {
@@ -85,21 +104,21 @@ export default class AddRoom extends Component {
             encType="multipart/form-data">
             <div className="col">
               <div className="input-section">
-                <label>Room Type</label>
+                <label>Room Name</label>
                 <br />
                 <select
                   className="input-field room-input-field"
-                  id="type"
+                  id="name"
                   onChange={(e) => {
-                    this.setState({ roomType: e.target.value });
+                    this.setState({ roomName: e.target.value });
                     checkInputOnChange(
                       e.target.value,
-                      "typeErr",
-                      "Please Select a Room Type"
+                      "nameErr",
+                      "Please Select a Room Name"
                     );
                   }}>
-                  <option value=" " defaultValue disabled>
-                    Select a room type
+                  <option value=" " selected disabled>
+                    Select a Room Name
                   </option>
                   <option value="Triple Deluxe Room">Triple Deluxe Room</option>
                   <option value="Triple Basic Room">Triple Basic Room</option>
@@ -117,7 +136,55 @@ export default class AddRoom extends Component {
                     Single Economy Room
                   </option>
                 </select>
+                <span id="nameErr"></span>
+              </div>
+
+              <div className="input-section">
+                <label>Room Type</label>
+                <br />
+                <select
+                  className="input-field room-input-field"
+                  id="type"
+                  onChange={(e) => {
+                    this.setState({ type: e.target.value });
+                    checkInputOnChange(
+                      e.target.value,
+                      "typeErr",
+                      "Please Select a Room Type"
+                    );
+                  }}>
+                  <option value=" " selected disabled>
+                    Select a Room Type
+                  </option>
+                  <option value="Deluxe">Deluxe</option>
+                  <option value="Basic">Basic</option>
+                  <option value="Economy">Economy</option>
+                </select>
                 <span id="typeErr"></span>
+              </div>
+
+              <div className="input-section">
+                <label>Room Capacity</label>
+                <br />
+                <select
+                  className="input-field room-input-field"
+                  id="count"
+                  onChange={(e) => {
+                    this.setState({ maxCount: e.target.value });
+                    checkInputOnChange(
+                      e.target.value,
+                      "countErr",
+                      "Please Select Room Capacity"
+                    );
+                  }}>
+                  <option value=" " selected disabled>
+                    Select Capacity
+                  </option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+                <span id="countErr"></span>
               </div>
 
               <div className="input-section">
@@ -128,6 +195,8 @@ export default class AddRoom extends Component {
                   id="price"
                   type="number"
                   placeholder="Room Price( 200$-500$  )"
+                  min="200"
+                  max="500"
                   onChange={(e) => {
                     this.setState({ roomPrice: e.target.value });
                     checkInputOnChange(
@@ -141,37 +210,9 @@ export default class AddRoom extends Component {
               </div>
 
               <div className="input-section">
-                <label>Room Features</label>
-                <br />
-                <select
-                  className="input-field room-input-field"
-                  id="features"
-                  onChange={(e) => {
-                    this.setState({ roomFeatures: e.target.value });
-                    checkInputOnChange(
-                      e.target.value,
-                      "ftrErr",
-                      "Please Select Room Features"
-                    );
-                  }}>
-                  <option value=" " defaultValue disabled>
-                    Choose one or more options
-                  </option>
-                  <option value="Triple Deluxe Room">Conditioned Air</option>
-                  <option value="Triple Basic Room">Mini Bar</option>
-                  <option value="Triple Economy Room">Wi-Fi Connection</option>
-                  <option value="Double Deluxe Room">Direct Phone</option>
-                  <option value="Double Basic Room">
-                    Cable Staellite Tv and Movie on demand
-                  </option>
-                </select>
-                <span id="ftrErr"></span>
-              </div>
-
-              <div className="input-section">
                 <label>Description</label>
                 <br />
-                <input
+                <textarea
                   className="input-field room-input-field"
                   id="description"
                   type="text"
@@ -218,12 +259,14 @@ export default class AddRoom extends Component {
 
               <div className="row">
                 <div className="col d-flex justify-content-center">
-                <button type="submit" className="Button room-add-btn">
-                  Add a Room
-                </button>
+                  <button type="submit" className="Button room-add-btn">
+                    Add a Room
+                  </button>
                 </div>
                 <div className="col d-flex justify-content-center">
-                  <Button onClick={this.handleRedirect} className="Button room-add-btn">
+                  <Button
+                    onClick={this.handleRedirect}
+                    className="Button room-add-btn">
                     Back to All Rooms
                   </Button>
                 </div>

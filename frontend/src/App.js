@@ -33,6 +33,8 @@ import CustomerTaxiOption from './Components/Taxi/CustomerSide/CustomerTaxiOptio
 import ViewAllRooms from './Components/Room/AdminSide/ViewAllRooms';
 import AddRoom from './Components/Room/AdminSide/AddRoom';
 import UpdateRoom from './Components/Room/AdminSide/UpdateRoom';
+import CusViewAllRooms from './Components/Room/CustomerSide/CustomerViewAllRooms';
+import CusViewRoom from './Components/Room/CustomerSide/CustomerViewRoomDetails';
 
 
 function App() {
@@ -72,9 +74,10 @@ function App() {
 
         {/* Rooms Routes */}
         <Route path='/addRoom' exact element={<AddRoom />} />
-        <Route path='/allRooms' element={<ViewAllRooms />} />
+        <Route path='/allRooms' exact element={<ViewAllRooms />} />
         <Route path='/updateRoom/:id' exact element={<UpdateRoom />} />
-
+        <Route path='/rooms' exact element={<CusViewAllRooms/>}/>
+        <Route path='/room/:id' exact element={<CusViewRoom/>}/>
 
       </Routes>
     </div>

@@ -381,8 +381,16 @@
 
 .roomCardImg{
 width: 200px;
+
 margin-top: 10px;
 margin-bottom: 10px;
+}
+
+.roomName{
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .rmupdateBtn{
@@ -443,3 +451,58 @@ margin-bottom: 10px;
     margin-top: 50px;
  }
 
+ /************************ Room Css ****************************************/
+
+ .singleImg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 70px;
+  width: 1000px;
+  height: 550px;
+ }
+
+ .features{
+  margin-top: 50px;
+  margin-left: 147px;
+ }
+
+ /* .icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+ } */
+
+ .room-hr{
+  display: flex;
+  margin-left: 147px;
+  width: 1000px;
+  margin-bottom: 40px;
+ }
+
+ .dlsform{
+  font-family: sans-serif;
+  margin-top: 50px;
+  margin-left: 147px;
+ }
+
+ .roomBook{
+  padding-top: 5%;
+ }
+
+ .roomBook-input-field{
+  width: 70%;
+ }
+
+ .room-book-btn{
+  width: 70%;
+ }
+
+ .back-to-rooms-btn{
+  width: 70%;
+  margin-top: 10px;
+ }
