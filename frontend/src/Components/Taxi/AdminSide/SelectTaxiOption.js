@@ -15,7 +15,7 @@ export default class SelectTaxiOption extends Component {
             <div className='col'>
                 <Link to='/addTaxi'>
                     <div className='card menu-card'>
-                        <img src={taxi} alt='add-a-taxi' className='menuImg' />
+                        <img src={taxi} alt='add-a-taxi' className='taxi-option-image' />
                         <h3>Add A Taxi</h3>
                     </div>
                 </Link>
@@ -23,7 +23,7 @@ export default class SelectTaxiOption extends Component {
             <div className='col'>
                 <Link to='/admin-viewAllTaxis'>
                     <div className='card menu-card'>
-                        <img src={taxis} alt='add-a-taxi' className='menuImg' />
+                        <img src={taxis} alt='add-a-taxi' className='taxi-option-image' />
                         <h3>Added Taxi List</h3>
                     </div>
                 </Link>
