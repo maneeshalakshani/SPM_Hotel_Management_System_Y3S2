@@ -483,3 +483,14 @@ margin-bottom: 10px;
   background-color: rgb(59, 59, 189);
 
 }
+
+/********************** Customer Book Your Vehicle CSS ******************************/
+.taxi-book-input-section{
+  padding-top: 10px;
+}
+
+.taxi-book-input{
+  border: 1px solid rgba(128, 128, 128, 0.477);
+  border-radius: 5px;
+  padding: 6px 0px;
+}

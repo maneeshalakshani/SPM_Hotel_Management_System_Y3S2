@@ -28,6 +28,7 @@ app.use(cors({origin: true, credentials: true}));
 
 // routes import
 const taxiRouter = require('./routes/TaxiRouters/TaxiRoute');
+const bookTaxi = require('./routes/TaxiRouters/TaxiBookRouter');
 const menudRouter= require('./routes/MenuRotters/MenuDetailsRouter');
 const roomsRouter= require('./routes/RoomRouters/RoomRouter');
 const commonRoutes = require('./routes/commonRoutes');
@@ -35,6 +36,7 @@ const hallRouter = require('./routes/HallRouters/HallRouter');
 
 //routes
 app.use('/taxi', taxiRouter);
+app.use('/taxiBook', bookTaxi);
 app.use('/menud',menudRouter);
 app.use('/rooms', roomsRouter);
 app.use('/', commonRoutes)

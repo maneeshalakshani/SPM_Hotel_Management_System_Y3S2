@@ -53,3 +53,16 @@ export const updateTaxi = async (id, taxi) => {
         console.log("Error: ", err)
     })
 }
+
+//========= BOOK TAXI FUNCTIONS ============================================
+export const bookTaxi = async (taxiBookDetails) => {
+    axios.post('http://localhost:8082/taxiBook/book', taxiBookDetails, {
+        headers: {
+            'Content-type': 'application/json',
+        }
+    }).then((res) => {
+        alert("Taxi Booked Sucessfully")
+    }).catch((err) => {
+        console.log('err', err)
+    })
+}

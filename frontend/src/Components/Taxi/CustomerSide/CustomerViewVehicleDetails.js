@@ -1,27 +1,9 @@
 import React, { Component } from 'react'
 import '../../../App.css'
-import {Link} from 'react-router-dom';
 
 import { getTaxi } from '../../../functions/taxiFunctions';
-
-const DisplayDitails = (props) => {
-    return <div className='row dataInput'>
-        <div className='col'>
-            <h5>{props.title}</h5>
-        </div>
-        <div className='col'>
-            {props.data}
-        </div>
-    </div>
-}
-
-const BookButton = (props) => {
-    return <div className='col d-flex justify-content-center'>
-        <Link to={{pathname: `/cusomer-View-Vehicle/${props.id}`, param1: "Par1"}} className='Button data-taxiBookBtn'>
-            Book
-        </Link>
-    </div>
-}
+import { DisplayDitails } from './Widget/DisplayDetails';
+import { BookButton } from './Widget/BookButton';
 
 export default class CustomerViewVehicleDetails extends Component {
 
@@ -73,7 +55,7 @@ export default class CustomerViewVehicleDetails extends Component {
                     <DisplayDitails title={'Number of Seats'} data={this.state.noOfSeats}/>
                     <DisplayDitails title={'Driver Name'} data={this.state.driver}/>
                 </div>
-                <BookButton id={this.state.taxi._id} />
+                <BookButton path={`/cusomer-Book-Your-Vehicle/${this.state.taxi._id}`} />
             </div>
         </div>
       </div>

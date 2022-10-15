@@ -34,6 +34,8 @@ import ViewAllRooms from './Components/Room/AdminSide/ViewAllRooms';
 import AddRoom from './Components/Room/AdminSide/AddRoom';
 import UpdateRoom from './Components/Room/AdminSide/UpdateRoom';
 import CustomerViewVehicleDetails from './Components/Taxi/CustomerSide/CustomerViewVehicleDetails';
+import CustomerBookYourVehicle from './Components/Taxi/CustomerSide/CustomerBookYourVehicle';
+import CustomerBookedTaxis from './Components/Taxi/CustomerSide/CustomerBookedTaxis';
 
 
 function App() {
@@ -58,6 +60,8 @@ function App() {
         <Route path='/customer-viewAllTaxis' element={<CustomerViewAll />} />
         <Route path='/updateTaxi/:id' element={<UpdateTaxi />} />
         <Route path='/cusomer-View-Vehicle/:id' element={<CustomerViewVehicleDetails />} />
+        <Route path='/cusomer-Book-Your-Vehicle/:id' element={<CustomerBookYourVehicle />} />
+        <Route path='/customer-booked-taxis' element={<CustomerBookedTaxis />} />
 
 
         {/*Menu Routes */}
