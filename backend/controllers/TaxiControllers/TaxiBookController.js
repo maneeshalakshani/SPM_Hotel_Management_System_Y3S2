@@ -2,9 +2,9 @@ const Taxi = require('../../models/TaxiModels/TaxiBookModel');
 
 //Add Taxi==========================================================================================
 exports.bookTaxi = async (req, res) => {
-    const {vehicleId, startDate, endDate, purpose, time, location} = req.body;
+    const {vehicleId, startDate, endDate, purpose, time, location, taxiType, image} = req.body;
  
-    const taxi = new Taxi({vehicleId, startDate, endDate, purpose, time, location})
+    const taxi = new Taxi({vehicleId, startDate, endDate, purpose, time, location, taxiType, image})
     try{
         const bookMsg = await taxi.save();
         res.status(200).json(bookMsg);
@@ -31,5 +31,15 @@ exports.deleteBookedTaxi = async (req, res) => {
         res.status(200).json({'message': 'Booked Taxi deleted Sucessfuly'});
     }catch(err){
         res.status(500).json({'Error': err});
+    }
+}
+
+//get all booked taxi========================================================================================
+exports.getAllBookedTaxis = async (req, res) => {
+    try{
+        const taxis = await Taxi.find();
+        res.status(200).json({'Result': taxis});
+    }catch(err){
+        res.status(500).json({'Error': 'Cannot get All Taxi details'});
     }
 }

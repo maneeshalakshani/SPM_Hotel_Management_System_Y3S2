@@ -461,7 +461,7 @@ margin-bottom: 10px;
 } 
 
 .dataInput{
-  padding: 20px 30px;
+  padding: 5px 30px;
 }
 
 .data-image{
@@ -493,4 +493,14 @@ margin-bottom: 10px;
   border: 1px solid rgba(128, 128, 128, 0.477);
   border-radius: 5px;
   padding: 6px 0px;
+}
+
+/********************** Booked Vehicle CSS ******************************/
+.booked-taxi-grid-container{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.card-css{
+  padding-left: 40px;
 }

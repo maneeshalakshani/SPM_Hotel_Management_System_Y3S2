@@ -21,7 +21,7 @@ export default class CustomerBookYourVehicle extends Component {
             endDate: '', 
             purpose: '', 
             time: '',
-            location: ''
+            location: '',
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,7 +37,7 @@ export default class CustomerBookYourVehicle extends Component {
 
       handleSubmit(e){
         e.preventDefault();
-        const{id, startDate, endDate, purpose, time, location} = this.state;
+        const{id, startDate, endDate, purpose, time, location, taxi} = this.state;
 
         const BookedTaxi = {
           vehicleId : id,
@@ -45,10 +45,10 @@ export default class CustomerBookYourVehicle extends Component {
           endDate: endDate, 
           purpose: purpose, 
           time: time,
-          location: location
+          location: location,
+          taxiType: taxi.taxiType,
+          image: taxi.image
         }
-
-        console.log("Booked Taxi: "+ BookedTaxi.startDate);
 
         bookTaxi(BookedTaxi);
       }

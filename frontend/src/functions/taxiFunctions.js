@@ -66,3 +66,23 @@ export const bookTaxi = async (taxiBookDetails) => {
         console.log('err', err)
     })
 }
+
+export const getAllBookedTaxis = async () => {
+    let taxis = axios.get('http://localhost:8082/taxiBook/getAllBookedTaxis').then((res) => {
+        let allTaxis = res.data.Result;
+        return allTaxis;
+    }).catch((err) => {
+        console.log('Error: ', err)
+    })
+    return taxis;
+}
+
+export const deleteBookedTaxi = async (id) => {
+    try{
+        await axios.delete(`http://localhost:8082/taxiBook/deleteTaxi/${id}`).then((res) => {
+            
+        })
+    }catch(err){
+        console.log("Error", err)
+    }
+}
