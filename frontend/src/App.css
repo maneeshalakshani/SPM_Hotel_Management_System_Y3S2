@@ -449,3 +449,37 @@ margin-bottom: 10px;
   height: 300px;
 }
 
+.vehicle-card{
+  margin-top: 20px;
+  padding-bottom: 20px;
+  width: 80%;
+}
+
+.vehicle-card:hover, .taxiCard:hover{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.5s;
+} 
+
+.dataInput{
+  padding: 20px 30px;
+}
+
+.data-image{
+  width: 100%;
+  height: 350px;
+}
+
+.data-taxiBookBtn{
+  width: 30%;
+  background-color: rgb(206, 198, 43);
+  text-align: center;
+  text-decoration: none;
+  padding-top: 6px;
+  margin-top: 15px;
+}
+
+.data-taxiBookBtn:hover{
+  color: white;
+  background-color: rgb(59, 59, 189);
+
+}
