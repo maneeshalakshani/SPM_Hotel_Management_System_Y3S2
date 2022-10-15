@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/esm/Button";
 
-import { deleteRoom, getAllRooms } from "../../../functions/roomFunctions";
+import { getAllRooms } from "../../../functions/roomFunctions";
 
 export default class ViewAllRooms extends Component {
   constructor(props) {
@@ -20,21 +19,6 @@ export default class ViewAllRooms extends Component {
     });
   }
 
-  handleRedirect() {
-    window.location.href = "/addRoom"
-  }
-
-  DeleteRoomFunc(id) {
-    deleteRoom(id).then(res => {
-      getAllRooms().then((data) => {
-        this.setState({
-          rooms: data,
-        });
-      });
-    });
-    
-  }
-
   displayAllRooms(allRooms) {
     if (allRooms !== undefined) {
       if (allRooms.length > 0) {
@@ -47,23 +31,13 @@ export default class ViewAllRooms extends Component {
               <h6>Room Type : {r.type}</h6>
               <h6>Guest Count : {r.maxCount} Adults</h6>
               <h6>Per Night : {r.roomPrice}$</h6>
-              <div className="row">
-                <div className="col d-flex justify-content-center">
                   <Link
-                    to={{ pathname: `/updateRoom/${r._id}`, param1: "Par1" }}
+                    to={{ pathname: `/room/${r._id}`, param1: "Par1" }}
                     className="Button rmupdateBtn">
-                    Update
+                    Features
                   </Link>
-                </div>
-                <div className="col d-flex justify-content-center">
-                  <button
-                    className="Button rmdeleteBtn"
-                    onClick={() => this.DeleteRoomFunc(r._id)}>
-                    Delete
-                  </button>
-                </div>
-              </div>
             </div>
+            
           );
         })
       )}
@@ -74,12 +48,7 @@ export default class ViewAllRooms extends Component {
     return (
       <div className="container main-container">
         <div className="row">
-          <h1 className="text-center mt-4">Rooms List</h1>
-        </div>
-        <div className="text-end mt-5">
-          <Button onClick={this.handleRedirect} className="AddNwRmBtn" variant="outline-dark">
-              + Add New Room
-          </Button>
+          <h1 className="text-center mt-4">Our Rooms</h1>
         </div>
         <div className="row">
           <div className="grid-container">

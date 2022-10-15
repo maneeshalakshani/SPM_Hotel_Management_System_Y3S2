@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
 const RoomsSchema = new mongoose.Schema({
-    roomType: { type:String, required:true },
+    roomName: { type:String, required:true },
+    type: { type:String, required:true},
+    maxCount: { type:Number, required:true},
     roomPrice: { type:Number, required:true },
-    roomFeatures: { type:String, required:true },
     description: { type:String, required:true },
-    images: { type:String }
+    images: { type:String },
 });
 
 const RoomsModel = mongoose.model("Room", RoomsSchema);

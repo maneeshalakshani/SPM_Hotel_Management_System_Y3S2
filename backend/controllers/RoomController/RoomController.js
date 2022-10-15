@@ -25,13 +25,13 @@ exports.uploadImage = upload.single('images');
 
 //Add a Room===========================================================================================
 exports.addRoom = async (req, res) => {
-    const {roomType, roomPrice, roomFeatures, description} = req.body;
+    const {roomName, type, maxCount, roomPrice, description} = req.body;
     let images = req.file.path;
 
     let i = images;
     images = i.split("public")[1].replace(/\\/g, '/').toString();
  
-    const room = new Room({roomType, roomPrice, roomFeatures, description, images})
+    const room = new Room({roomName, type, maxCount, roomPrice, description, images})
     try{
         const roomMsg = await room.save();
         res.status(200).json(roomMsg);
@@ -65,7 +65,7 @@ exports.getRoom = async (req, res) => {
 exports.updateRoom = async (req, res) => {
     try{
         const {id} = req.params;
-        let {roomType, roomPrice, roomFeatures, description} = req.body;
+        let {roomName, type, maxCount, roomPrice, description} = req.body;
         let images;
         
         const RoomToUpdate = await Room.findById(id);
@@ -80,9 +80,10 @@ exports.updateRoom = async (req, res) => {
         }
 
         var RoomObj = {
-            "roomType": roomType,
+            "roomName": roomName,
+            "type": type,
+            "maxCount": maxCount,
             "roomPrice": roomPrice,
-            "roomFeatures": roomFeatures,
             "description": description,
             "images": images
         }
