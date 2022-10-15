@@ -5,12 +5,14 @@ const Hall = require('../../models/HallModels/HallModels');
 //upload hall images to uploads/halls folder===========================================================
 const config = multer.diskStorage({
     destination: (req, res, callback) => {
-        callback(null, '../frontend/src/images/Hall_Images/uploads/');
+        callback(null, '../frontend/public/images/Hall_Images/uploads/');
     },
     filename: (req, file, callback) => {
         const max = 999999999;
         const min = 100000000;
-        callback(null, file.originalname);
+        let random = Math.floor(Math.random() * (max - min + 1) + min);
+        let extension = file.mimetype.split('/')[1];
+        callback(null, `${random}.${extension}`);
     }
 })
 
@@ -25,7 +27,10 @@ exports.uploadImage = upload.single('images');
 //Add a Hall===========================================================================================
 exports.addHall = async (req, res) => {
     const {hallName, description, receiption, theatre, banquet, classroom, dimension, area, ceiling } = req.body;
-    const images = req.file.path
+    let images = req.file.path;
+
+    let i = images;
+    images = i.split("public")[1].replace(/\\/g, '/').toString();
  
     const hall = new Hall({hallName, description, receiption, theatre, banquet, classroom, dimension, area, ceiling, images})
     try{
@@ -62,15 +67,17 @@ exports.updateHall = async (req, res) => {
     try{
         const {id} = req.params;
         let {hallName, description, receiption, theatre, banquet, classroom, dimension, area, ceiling} = req.body;
-        let image;
+        let images;
         
         const HallToUpdate = await Hall.findById(id);
         
         try{
-            image = req.file.path;
+            images = req.file.path;
+            let i = images;
+            images = i.split("public")[1].replace(/\\/g, '/').toString();
         }catch(err){
-            image = HallToUpdate.image;
-            console.log(image);
+            images = HallToUpdate.images;
+            console.log(images);
         }
 
         var HallObj = {
@@ -83,7 +90,7 @@ exports.updateHall = async (req, res) => {
             "dimension": dimension,
             "area": area,
             "ceiling": ceiling,
-            "image": image
+            "image": images
         }
 
         const obj = await Hall.findByIdAndUpdate(id, HallObj);

@@ -10,9 +10,10 @@ export default class UpdateRoom extends Component {
     super(props);
     this.state = {
       images: "",
-      roomType: "",
+      roomName: "",
+      type: "",
+      maxCount: 0,
       roomPrice: 0,
-      roomFeatures: "",
       description: "",
       id: window.location.pathname.split("/")[2],
       room: "",
@@ -25,9 +26,10 @@ export default class UpdateRoom extends Component {
     getRoom(this.state.id).then((data) => {
       this.setState({
         room: data,
-        roomType: this.state.room.roomType,
+        roomName: this.state.room.roomName,
+        type: this.state.room.type,
+        maxCount: this.state.room.maxCount,
         roomPrice: this.state.room.roomPrice,
-        roomFeatures: this.state.room.roomFeatures,
         description: this.state.room.description,
         roomDefault: this.state.room.images,
       });
@@ -44,27 +46,36 @@ export default class UpdateRoom extends Component {
   }
 
   checkInputs() {
-    let type = this.state.roomType;
+    let name = this.state.roomName;
+    let type = this.state.type;
+    let count = this.state.maxCount;
     let price = document.getElementById("price").value;
-    let features = this.state.features;
     let description = document.getElementById("description").value;
     let images = document.getElementById("images").value;
 
+    let nameErr = document.getElementById("nameErr");
     let typeErr = document.getElementById("typeErr");
+    let countErr = document.getElementById("countErr");
     let priceErr = document.getElementById("priceErr");
-    let ftrErr = document.getElementById("ftrErr");
     let desErr = document.getElementById("desErr");
     let imagesErr = document.getElementById("imagesErr");
 
-    var vInput = { type, price, features, description, images };
-    var errInput = { typeErr, priceErr, ftrErr, desErr, imagesErr };
+    var vInput = { name, type, count, price, description, images };
+    var errInput = {
+      nameErr,
+      typeErr,
+      countErr,
+      priceErr,
+      desErr,
+      imagesErr,
+    };
 
-    return roomValidity(vInput, errInput, 'update');
+    return roomValidity(vInput, errInput, null);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const { images, roomType, roomPrice, roomFeatures, description } =
+    const { images, type, roomName, maxCount, roomPrice, description } =
       this.state;
 
     let doSubmit = this.checkInputs();
@@ -72,9 +83,10 @@ export default class UpdateRoom extends Component {
     if (doSubmit === true) {
       const formData = new FormData();
       formData.append("images", images);
-      formData.append("roomType", roomType);
+      formData.append("roomName", roomName);
+      formData.append("type", type);
+      formData.append("maxCount", maxCount);
       formData.append("roomPrice", roomPrice);
-      formData.append("roomFeatures", roomFeatures);
       formData.append("description", description);
 
       updateRoom(this.state.id, formData);
@@ -100,16 +112,16 @@ export default class UpdateRoom extends Component {
 
             <div className="col">
               <div className="input-section">
-                <label>Room Type</label>
+              <label>Room Name</label>
                 <br />
                 <select
                   className="input-field room-input-field"
-                  id="type"
+                  id="name"
                   onChange={(e) => {
-                    this.setState({ roomType: e.target.value });
+                    this.setState({ roomName: e.target.value });
                   }}>
-                  <option value={this.state.room.roomType || ''}>
-                    {this.state.room.roomType}
+                  <option value={this.state.room.roomName || ''} selected disabled>
+                    {this.state.room.roomName}
                   </option>
                   <option value="Triple Deluxe Room">Triple Deluxe Room</option>
                   <option value="Triple Basic Room">Triple Basic Room</option>
@@ -127,7 +139,45 @@ export default class UpdateRoom extends Component {
                     Single Economy Room
                   </option>
                 </select>
-                <span id='typeErr'></span>
+                <span id='nameErr'></span>
+              </div>
+
+              <div className="input-section">
+                <label>Room Type</label>
+                <br />
+                <select
+                  className="input-field room-input-field"
+                  id="type"
+                  onChange={(e) => {
+                    this.setState({ type: e.target.value });
+                  }}>
+                  <option value={this.state.room.type || ''} selected disabled>
+                    {this.state.room.type}
+                  </option>
+                  <option value="Deluxe">Deluxe</option>
+                  <option value="Basic">Basic</option>
+                  <option value="Economy">Economy</option>
+                </select>
+                <span id="typeErr"></span>
+              </div>
+
+              <div className="input-section">
+                <label>Room Capacity</label>
+                <br />
+                <select
+                  className="input-field room-input-field"
+                  id="count"
+                  onChange={(e) => {
+                    this.setState({ maxCount: e.target.value });
+                  }}>
+                  <option value={this.state.room.maxCount || ''} selected disabled>
+                    {this.state.room.maxCount}
+                  </option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+                <span id="countErr"></span>
               </div>
 
               <div className="input-section">
@@ -145,34 +195,11 @@ export default class UpdateRoom extends Component {
                 />
                 <span id='priceErr'></span>
               </div>
-              
-              <div className="input-section">
-                <label>Room Features</label>
-                <br />
-                <select
-                  className="input-field room-input-field"
-                  id="features"
-                  onChange={(e) => {
-                    this.setState({ roomFeatures: e.target.value });
-                  }}>
-                  <option value={this.state.room.roomFeatures || ''}>
-                    {this.state.room.roomFeatures}
-                  </option>
-                  <option value="Triple Deluxe Room">Conditioned Air</option>
-                  <option value="Triple Basic Room">Mini Bar</option>
-                  <option value="Triple Economy Room">
-                  Wi-Fi Connection
-                  </option>
-                  <option value="Double Deluxe Room">Direct Phone</option>
-                  <option value="Double Basic Room">Cable Staellite Tv and Movie on demand</option>
-                </select>
-                <span id='ftrErr'></span>
-              </div>
 
               <div className="input-section">
                 <label>Description</label>
                 <br />
-                <input
+                <textarea
                   className="input-field room-input-field"
                   id="description"
                   type='text'

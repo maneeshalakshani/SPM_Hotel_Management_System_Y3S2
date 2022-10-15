@@ -31,7 +31,7 @@ export default class adminMenu extends Component {
         </div>
         <div className='row'>
           <div className='col'>
-            <Link className='menuimglink' to='/home'>
+            <Link className='menuimglink' to='/admin-viewAllHalls'>
               <div className='card menu-card'>
                 <img src={hall} alt='hall' className='menuImg' />
                 <h3 className='menuItem'>Hall Management</h3>
@@ -39,7 +39,7 @@ export default class adminMenu extends Component {
             </Link>
           </div>
           <div className='col'>
-            <Link to='/allRooms'>
+            <Link className='menuimglink' to='/allRooms'>
               <div className='card menu-card'>
                 <img src={room} alt='room' className='menuImg' />
                 <h3 className='menuItem'>Room Management</h3>
