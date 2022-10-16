@@ -61,7 +61,7 @@ export default class Nav extends Component {
               <Link className='navlink' to='/rooms'><li>Room</li></Link>
             </>: ( this.state.role === 'admin' ?
             <>
-              <Link className='navlink' to='/menuhome'><li>Food</li></Link> 
+              <Link className='navlink' to='/menuhome'><li>Menu</li></Link> 
               <Link className='navlink' to='/admin-selectTaxiOption'><li>Taxi</li></Link> 
               <Link className='navlink' to='/admin-viewAllHalls'><li>Hall</li></Link> 
               <Link className='navlink' to='/allRooms'><li>Room</li></Link>
