@@ -50,6 +50,8 @@ export default function Addmenu(){
  
         return(
     <div className='container main-container'>
+        <br></br>
+         <div id="updatemenutopic"><h1>Add the Menu.</h1></div>
         <br></br><br></br><br></br>
         <div class="menuform">
         <br></br><br></br><br></br>

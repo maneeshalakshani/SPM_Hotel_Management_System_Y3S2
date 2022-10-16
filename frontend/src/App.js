@@ -27,6 +27,8 @@ import UpdateMenu from './Components/Menu/Adminmenuside/Updatemenu';
 import Menusetting from './Components/Menu/Adminmenuside/Menusetting';
 import Mainmenusetting from './Components/Menu/Adminmenuside/Mainmenusetting';
 import Deletemenu from './Components/Menu/Adminmenuside/Deletemenu';
+import Menureports from './Components/Menu/Adminmenuside/Menureports';
+import Menureportviews from './Components/Menu/Adminmenuside/Menureportview';
 
 import CustomerTaxiOption from './Components/Taxi/CustomerSide/CustomerTaxiOption';
 
@@ -68,6 +70,10 @@ function App() {
         <Route path='/menusetting' exact element={<Menusetting/>}/>
         <Route path='/mainmenusetting' exact element={<Mainmenusetting/>}/>
         <Route path='/deletemenu/:id' exact element={<Deletemenu/>}/>
+        <Route path='/menureports' exact element={<Menureports/>}/>
+        <Route path='/menureportview' exact element={<Menureportviews/>}/>
+
+      
      
 
         {/* Rooms Routes */}

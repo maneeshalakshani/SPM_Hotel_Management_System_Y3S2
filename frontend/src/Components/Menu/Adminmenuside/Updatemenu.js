@@ -55,8 +55,8 @@ import '../../../CSS/Menu.css';
         
         <br></br><br></br><br></br>
         <div class="menuformupdate">
-        <br></br>
-        <h1>Update the Menu.</h1>
+        <br></br> 
+        <div id="updatemenutopic"><h1>Update the Menu.</h1></div>
         <br></br><br></br>
         {inputs && (
         <form onSubmit={handleSubmit}>
