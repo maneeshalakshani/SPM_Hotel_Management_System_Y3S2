@@ -632,7 +632,9 @@ tr:nth-child(even) {
  }
 
  .back-to-rooms-btn{
-  width: 70%;}
+  width: 70%;
+  margin-top: 10px;
+}
   
  .halldlsform{
   font-family: sans-serif;

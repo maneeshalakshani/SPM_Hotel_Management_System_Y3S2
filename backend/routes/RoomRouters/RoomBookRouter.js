@@ -12,6 +12,8 @@ router.post("/", (req, res) => {
     checkIn: req.body.checkIn,
     checkOut: req.body.checkOut,
     totalAmount: req.body.totalAmount,
+    name: req.body.name,
+    email: req.body.email,
   });
 
   newRmBooking
