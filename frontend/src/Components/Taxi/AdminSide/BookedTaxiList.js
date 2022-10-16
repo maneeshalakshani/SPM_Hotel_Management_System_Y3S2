@@ -22,14 +22,14 @@ export default class BookedTaxiList extends Component {
         })
       }
     
-      DeleteTaxiFunc(id){
-        deleteBookedTaxi(id);
-        getAllBookedTaxis().then((data) => {
-          this.setState({
-            bookDetail: data
-          })
-        })
-      }
+      // DeleteTaxiFunc(id){
+      //   deleteBookedTaxi(id);
+      //   getAllBookedTaxis().then((data) => {
+      //     this.setState({
+      //       bookDetail: data
+      //     })
+      //   })
+      // }
     
         displayAllTaxis(alltaxis) {
             if(alltaxis !== undefined){
