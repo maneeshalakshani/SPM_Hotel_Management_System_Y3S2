@@ -44,10 +44,6 @@ export default class Nav extends Component {
           <Link className='navlink' to='/about'>
             <li>About</li>
           </Link>
-
-          <Link className='navlink' to='/viewmenu'>
-            <li>Menus</li>
-          </Link>
           {/* {
             this.state.role === 'admin' 
             ? <Link className='navlink' to='/adminMenu'>
@@ -59,7 +55,7 @@ export default class Nav extends Component {
           {
             this.state.role === 'user' ? 
             <>
-              <Link className='navlink' to='/home'><li>Food</li></Link> 
+              <Link className='navlink' to='/viewmenu'><li>Menu</li></Link> 
               <Link className='navlink' to='/customer-selectTaxiOption'><li>Taxi</li></Link> 
               <Link className='navlink' to='/customer-viewAllHalls'><li>Hall</li></Link> 
               <Link className='navlink' to='/rooms'><li>Room</li></Link>
