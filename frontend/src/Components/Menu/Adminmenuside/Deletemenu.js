@@ -2,15 +2,16 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import '../../../CSS/Menu.css';
-import {Link} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
 
 
     const  ViewSingleMenu = (props) => {
 
         const [inputs, setInputs] = useState();
         const id = useParams().id;
+        const history =useNavigate(); 
         const deleteHandler=()=>{
-            axios.delete(`http://localhost:8082/menud/${id}`).then(res=>res.data)
+            axios.delete(`http://localhost:8082/menud/${id}`).then(res=>res.data).then(alert("Menu Deleted Succsefully")).then(()=>history("/mainmenusetting"))
         }
   
         useEffect(() => {

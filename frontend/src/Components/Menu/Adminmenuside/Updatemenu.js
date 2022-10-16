@@ -38,7 +38,7 @@ import '../../../CSS/Menu.css';
         }
         const handleSubmit=(e) =>{
             e.preventDefault();
-            sendRequest().then(()=>history("/viewmenu"))
+            sendRequest().then(alert("Menu Updated Succsefully")).then(()=>history("/mainmenusetting"))
             
         }
         const handleChange = (e) =>{

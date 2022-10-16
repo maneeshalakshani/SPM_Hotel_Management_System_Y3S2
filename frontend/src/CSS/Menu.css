@@ -248,3 +248,90 @@
   font-weight: bold;
   width: 200px;
 }
+
+/*****************REPORT ******************/
+
+#menureport{
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  font-size: small;
+  display: table;
+  width: 95%;
+  table-layout: fixed;
+ 
+}
+
+#menureport td, #menureport th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aaaa;
+  color: white;
+  border: 1px solid #ddd;
+}
+
+#menureport tr:nth-child(even){background-color: #f2f2f2;}
+
+#menureport tr:hover {background-color: #ddd;}
+
+#menureport th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #060606;
+  color: white;
+}
+/******/
+#menureportdetails{
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 95%;
+  font-size: small;
+  display: table;
+  table-layout: fixed;
+  border: 1px solid #ddd;
+}
+
+#menureportdetails td, #menureportdetails th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ab7222eb;
+  color: white;
+  border: 1px solid #ddd;
+}
+
+#menureportdetailstr:nth-child(even){background-color: #f2f2f2;}
+
+#menureportdetails tr:hover {background-color: #ddd;}
+
+#menureportdetails th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align:left;
+  background-color: #2b13b678;
+  color: white;
+}
+
+.menureportdiv{
+  text-align: center;
+}
+
+/******reportbutton****/
+.viewreportbutton{
+  border: none;
+    outline: 0;
+    background-color: rgb(240, 51, 4);
+    cursor: pointer;
+    width: 15%;
+    font-size: 25px;
+    padding: -10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    border-radius: 4px;
+    color: #f2f2f2;
+    position: absolute;
+    right: 5%;
+}

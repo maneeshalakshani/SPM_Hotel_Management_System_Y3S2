@@ -1,9 +1,10 @@
 import React, { Component, useState } from 'react'
-import {Link} from 'react-router-dom';
+import {useNavigateLink,useNavigate} from 'react-router-dom';
 import axios from 'axios';
 
 
 export default function Addmenu(){
+
 
     const[menuname,setMenuname]=useState("");
     const[menuprice,setMenuprice]=useState("");
@@ -19,10 +20,12 @@ export default function Addmenu(){
     const[dessert,setdessert]=useState("");
 
     
+ 
 
     function sentMenudata(e){
         e.preventDefault();
         console.log(menuname)
+       
 
         const newMenu={
             menuname,
