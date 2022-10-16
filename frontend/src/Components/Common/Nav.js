@@ -48,16 +48,33 @@ export default class Nav extends Component {
           <Link className='navlink' to='/viewmenu'>
             <li>Menus</li>
           </Link>
-          {
+          {/* {
             this.state.role === 'admin' 
             ? <Link className='navlink' to='/adminMenu'>
                 <li>Admin Menu</li>
               </Link>
             : this.state.role === null ? null :<Link style={navStyle} to='/userMenu'><li>User Menu</li></Link>
+          } */}
+
+          {
+            this.state.role === 'user' ? 
+            <>
+              <Link className='navlink' to='/home'><li>Food</li></Link> 
+              <Link className='navlink' to='/customer-selectTaxiOption'><li>Taxi</li></Link> 
+              <Link className='navlink' to='/customer-viewAllHalls'><li>Hall</li></Link> 
+              <Link className='navlink' to='/rooms'><li>Room</li></Link>
+            </>: ( this.state.role === 'admin' ?
+            <>
+              <Link className='navlink' to='/menuhome'><li>Food</li></Link> 
+              <Link className='navlink' to='/admin-selectTaxiOption'><li>Taxi</li></Link> 
+              <Link className='navlink' to='/admin-viewAllHalls'><li>Hall</li></Link> 
+              <Link className='navlink' to='/allRooms'><li>Room</li></Link>
+            </>: <></>)
           }
           <li>
-            <Link to='/'>
-              <button className='loginBtn' onClick={this.removeData}>Logout/Login</button>
+            <Link to='/' onClick={this.removeData} className='navlink' >
+              {/* <button className='loginBtn' onClick={this.removeData}>Logout/Login</button> */}
+              {this.state.role !== null ? 'Logout' : 'Login'}
             </Link>
           </li>
         </ul>
