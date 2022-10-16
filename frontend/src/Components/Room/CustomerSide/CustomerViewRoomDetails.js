@@ -12,6 +12,8 @@ const CustomerViewRoomDetails = () => {
   const [desc, setDesc] = useState("");
   const [image, setImage] = useState("");
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [inDate, setInDate] = useState({});
   const [outDate, setOutDate] = useState({});
   const [total, setTotal] = useState(0);
@@ -41,6 +43,8 @@ const CustomerViewRoomDetails = () => {
       checkIn: inDate,
       checkOut: outDate,
       totalAmount: total,
+      name: name,
+      email: email,
     };
 
     addRmBooking(booking);
@@ -75,6 +79,28 @@ const CustomerViewRoomDetails = () => {
             <h6>Total Adults : {maxCount} </h6>
             <h6>Price per Day : {roomPrice}$ </h6>
 
+            <div className="input-section">
+              <label>Name</label>
+              <br />
+              <input
+                onChange={(e) => setName(e.target.value)}
+                className="input-field roomBook-input-field"
+                id="name"
+                type="text"
+              />
+            </div>
+
+            <div className="input-section">
+              <label>Email</label>
+              <br />
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                className="input-field roomBook-input-field"
+                id="name"
+                type="text"
+              />
+            </div>
+            
             <div className="input-section">
               <label>Check-In</label>
               <br />
@@ -127,7 +153,7 @@ const CustomerViewRoomDetails = () => {
         </div>
       </div>
       <div>
-        <table hidden>
+        {/* <table hidden>
           <tr>
             <td>Room Name</td>
             <td>{roomName}</td>
@@ -152,7 +178,7 @@ const CustomerViewRoomDetails = () => {
             <td>Total Amount</td>
             <td>{total}</td>
           </tr>
-        </table>
+        </table> */}
       </div>
     </div>
   );

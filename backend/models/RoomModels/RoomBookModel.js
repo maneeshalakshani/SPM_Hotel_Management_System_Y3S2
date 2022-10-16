@@ -7,6 +7,8 @@ const RmsBookingSchema = new mongoose.Schema({
     checkIn: { type:Date, required:true },
     checkOut: { type:Date, required:true},
     totalAmount: {type:Number, required:true},
+    name: {type:String, required:true},
+    email: {type:String, required:true},
 });
 
 const RoomsBookModel = mongoose.model("Rm-Booking", RmsBookingSchema);
