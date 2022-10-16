@@ -4,7 +4,7 @@ import '../../../App.css';
 import {Link} from 'react-router-dom';
 import { getAllTaxis } from '../../../functions/taxiFunctions'
 
-import i from '../../../images/Taxi_Images/taxi.png';
+// import i from '../../../images/Taxi_Images/taxi.png';
 
 export default class CustomerViewAll extends Component {
 
@@ -31,7 +31,8 @@ export default class CustomerViewAll extends Component {
             return(
               <div className='card taxiCard' key={t._id}>
                 <h4>{t.taxiType}</h4>
-                <img src={i} alt="taxi" className='taxiCardImg' />
+                {/* <img src={i} alt="taxi" className='taxiCardImg' /> */}
+                <img src={t.image} alt="taxi" className='taxiCardImg' />
                 {/* {import(t.image).then((image) => {
                   this.setState({i: image})
                 })}
@@ -41,7 +42,10 @@ export default class CustomerViewAll extends Component {
                 {t.image.toString()} */}
                 <div className='row'>
                   <div className='col d-flex justify-content-center'>
-                    <Link to='/home' className='Button taxiBookBtn'>
+                    {/* <Link to='/cusomer-View-Vehicle' className='Button taxiBookBtn'>
+                      Book
+                    </Link> */}
+                    <Link to={{pathname: `/cusomer-View-Vehicle/${t._id}`, param1: "Par1"}} className='Button taxiBookBtn'>
                       Book
                     </Link>
                   </div>

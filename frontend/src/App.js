@@ -33,6 +33,10 @@ import CustomerTaxiOption from './Components/Taxi/CustomerSide/CustomerTaxiOptio
 import ViewAllRooms from './Components/Room/AdminSide/ViewAllRooms';
 import AddRoom from './Components/Room/AdminSide/AddRoom';
 import UpdateRoom from './Components/Room/AdminSide/UpdateRoom';
+import CustomerViewVehicleDetails from './Components/Taxi/CustomerSide/CustomerViewVehicleDetails';
+import CustomerBookYourVehicle from './Components/Taxi/CustomerSide/CustomerBookYourVehicle';
+import CustomerBookedTaxis from './Components/Taxi/CustomerSide/CustomerBookedTaxis';
+import BookedTaxiList from './Components/Taxi/AdminSide/BookedTaxiList';
 import CusViewAllRooms from './Components/Room/CustomerSide/CustomerViewAllRooms';
 import CusViewRoom from './Components/Room/CustomerSide/CustomerViewRoomDetails';
 
@@ -64,6 +68,10 @@ function App() {
         <Route path='/updateTaxi/:id' element={<UpdateTaxi />} />
         <Route path='/customer-viewAllTaxis' element={<CustomerViewAll />} />
         <Route path='/updateTaxi/:id' element={<UpdateTaxi />} />
+        <Route path='/cusomer-View-Vehicle/:id' element={<CustomerViewVehicleDetails />} />
+        <Route path='/cusomer-Book-Your-Vehicle/:id' element={<CustomerBookYourVehicle />} />
+        <Route path='/customer-booked-taxis' element={<CustomerBookedTaxis />} />
+        <Route path='/admin-booked-taxis' element={<BookedTaxiList />} />
 
 
         {/*Menu Routes */}

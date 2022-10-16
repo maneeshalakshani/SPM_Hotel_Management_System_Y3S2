@@ -451,6 +451,92 @@ margin-bottom: 10px;
     margin-top: 50px;
  }
 
+/********************** Customer Options CSS ******************************/
+.taxi-option-image{
+  width: 100%;
+  height: 300px;
+}
+
+.vehicle-card{
+  margin-top: 20px;
+  padding-bottom: 20px;
+  width: 80%;
+}
+
+.vehicle-card:hover, .taxiCard:hover{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.5s;
+} 
+
+.dataInput{
+  padding: 5px 30px;
+}
+
+.data-image{
+  width: 100%;
+  height: 350px;
+}
+
+.data-taxiBookBtn{
+  width: 30%;
+  background-color: rgb(206, 198, 43);
+  text-align: center;
+  text-decoration: none;
+  padding-top: 6px;
+  margin-top: 15px;
+}
+
+.data-taxiBookBtn:hover{
+  color: white;
+  background-color: rgb(59, 59, 189);
+
+}
+
+/********************** Customer Book Your Vehicle CSS ******************************/
+.taxi-book-input-section{
+  padding-top: 10px;
+}
+
+.taxi-book-input{
+  border: 1px solid rgba(128, 128, 128, 0.477);
+  border-radius: 5px;
+  padding: 6px 0px;
+}
+
+/********************** Booked Vehicle CSS ******************************/
+.booked-taxi-grid-container{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.card-css{
+  padding-left: 40px;
+}
+
+
+/********************** Taxi Report ******************************/
+.download-btn{
+  width: 30%;
+  background-color: rgb(34, 157, 168);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-top: 5%;
+  border: none;
+  border-radius: 8px;
+}
+
+.download-btn:hover{
+  color: white;
+  background-color: rgb(59, 59, 189);
+}
+
+.noData-image{
+  width: 100px;
+}
+
  /************************ Room Css ****************************************/
 
  .singleImg{

@@ -53,3 +53,36 @@ export const updateTaxi = async (id, taxi) => {
         console.log("Error: ", err)
     })
 }
+
+//========= BOOK TAXI FUNCTIONS ============================================
+export const bookTaxi = async (taxiBookDetails) => {
+    axios.post('http://localhost:8082/taxiBook/book', taxiBookDetails, {
+        headers: {
+            'Content-type': 'application/json',
+        }
+    }).then((res) => {
+        alert("Taxi Booked Sucessfully")
+    }).catch((err) => {
+        console.log('err', err)
+    })
+}
+
+export const getAllBookedTaxis = async () => {
+    let taxis = axios.get('http://localhost:8082/taxiBook/getAllBookedTaxis').then((res) => {
+        let allTaxis = res.data.Result;
+        return allTaxis;
+    }).catch((err) => {
+        console.log('Error: ', err)
+    })
+    return taxis;
+}
+
+export const deleteBookedTaxi = async (id) => {
+    try{
+        await axios.delete(`http://localhost:8082/taxiBook/deleteTaxi/${id}`).then((res) => {
+            
+        })
+    }catch(err){
+        console.log("Error", err)
+    }
+}
